@@ -158,7 +158,15 @@ years old
 
 String Methods
 
+isalpha(), isalnum(), isdecimal(), lower(), islower(), upper(), isupper(), title(), startsswitch(), endswitch(), replace(), split(), strip(), join(), find()
+
 ```python
 print('burnett'.upper()) # BURNETT
 print('BURNETT'.lower()) # burnett
+print('bEAu person'.title()) # Beau Person
+print('bEAu person'.islower()) # False
+
+name = "Beau"
+print(name.lower()) # beau 只會影響有下 lower()，
+print(name) # Beau  # 所以原始的name 不會改變
 ```
