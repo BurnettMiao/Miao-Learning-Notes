@@ -167,6 +167,166 @@ print('bEAu person'.title()) # Beau Person
 print('bEAu person'.islower()) # False
 
 name = "Beau"
-print(name.lower()) # beau 只會影響有下 lower()，
+print(name.lower()) # beau 只會影響有下 lower() 的 methods，
 print(name) # Beau  # 所以原始的name 不會改變
+print('au' in name) # True
+print(len(name)) # 4
+```
+
+Escaping Characters
+
+```python
+name = "Be\"au"
+print(name) # Be"au
+name = 'Be\nau' # \n 換行意思
+```
+
+String Characters & Slicing
+[開始, 不包含] 如以下範例
+
+```python
+name = 'Beau is cool'
+print(name[1]) # e
+print(name[1:2]) # e
+print(name[1:3]) # ea
+print(name[:3]) # Bea
+print(name[1:]) # eau is cool
+```
+
+Booleans
+
+```python
+done = True
+# done False
+
+print(type(done) == bool) # True
+
+if done:
+  print('yes')
+else:
+  print('no')
+```
+
+```python
+book_1_read = True
+book_2_read = False
+read_any_book = any([book_1_read, book_2_read])
+print(read_any_book) # True
+```
+
+```python
+ingredients_purchased = True
+meal_cooked = False
+ready_to_serve = all([ingredients_purchased, meal_cooked])
+print(ready_to_serve) # False
+```
+
+Number Data Types
+
+```python
+num1 = 2 + 3j
+num2 = complex(2, 3)
+
+print(num2.real, num2.imag)
+```
+
+Built-in Functions
+
+```python
+print(abs(5.5)) # 5.5
+print(abs(-5.5)) # 5.5
+print(round(-5.5)) # 6 (round => 四捨五入)
+print(round(5.49, 1)) # 5.5
+```
+
+Enums
+
+```python
+from enum import Enum
+
+class State(Enum):
+  INACTIVE = 0
+  ACTIVE = 1
+
+print(State.ACTIVE.value) #`1
+print(State(1)) # State.ACTIVE
+print(State['ACTIVE']) # State.ACTIVE
+print(State['ACTIVE'].value) # 1
+print(list(State)) # [<State.INACTIVE: 0>, <State.ACTIVE: 1>]
+print(len(State)) # 2
+```
+
+User Input
+
+```python
+age = input('What is your age? ')
+print('Your age is ' + age)
+```
+
+Control Statements
+
+```python
+condition = True
+
+if condition == True:
+  print('The condition')
+  print('was tue')
+else:
+  print('The condition')
+  print('was false')
+```
+
+```python
+name = 'Roger'
+
+if name == 'Roger':
+  print('Hello Roger')
+elif name == 'Syd':
+  print('Hello Syd')
+elif name == 'Flavio':
+  print('Hello Flavio')
+
+```
+
+Lists
+也可把 lists 定義成 []
+
+```python
+dogs = ['Roger', 1, 'Syd', True]
+print('Roger' in dogs) # True
+print('Beau' in dogs) # False
+print(dos[0]) # 'Roger'
+
+dogs[2] = 'Beau'
+print(dogs) # ['Roger', 1, 'Syd', True]
+print(dogs[-1]) # True
+print(dogs[1:3]) # [1, 'Beau']
+print(dogs[1:]) #
+print(dogs[:3]) #
+print(len(dog)) # 4
+
+# add item to lists
+dogs.append("Judah")
+dogs.extend(['Judah', 5])
+dogs += ['Judah', 5]
+
+# remove item
+dogs.remove('Roger')
+
+# pop() 移除最後一個 item
+print(dogs.pop())
+
+# insert() add item in middle
+items = ['Roger', 1, 'Syd', True, 'Quincy', 7]
+items.insert(2, 'Test')
+print(items) # ['Roger', 1, 'Test', 'Syd', True, 'Quincy', 7]
+
+# add multiple elements in certain place
+items[1:1] = ['Test1', 'Test2']
+print(items)
+
+# Sorting Lists
+items = ['Roger', 'Syd', 'Beau', 'Quincy']
+items.sort()
+print(items) # ['Beau', 'Quincy', 'Roger', 'Syd']
 ```
