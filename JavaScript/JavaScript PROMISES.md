@@ -142,3 +142,31 @@ walkDog()
   })
   .catch((error) => console.error(error));
 ```
+
+實測
+
+```javascript
+let namesArr = [];
+
+function promiseA() {
+  return new Promise((resolve, reject) => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((item) => {
+          resolve(namesArr.push(item.name));
+        });
+      });
+  });
+}
+
+function promiseB() {
+  return new Promise((resolve, reject) => {
+    console.log(namesArr);
+  });
+}
+
+promiseA().then(() => {
+  return promiseB();
+});
+```
