@@ -1,6 +1,18 @@
 ## JavaScript PROMISES
 
-1. callback hell
+Promise = An Object that manages asynchronous operations. Wrap a Promise Object around {asynchronous code} "I promise to return a value". PENDING -> RESOLVED or REJECTED
+
+```javascript
+new Promise((resolve, reject) => {asynchronous code})
+```
+
+DO THESE CHORES IN ORDER
+
+1. WALK THE DOG
+2. CLEAN THE KITCHEN
+3. TAKOUT THE TRASH
+
+- callback hell
 
 ```javascript
 function walkDog(callback) {
@@ -33,7 +45,7 @@ walkDog(() => {
 });
 ```
 
-2. Promise (resolve)
+- Promise (resolve)
 
 ```javascript
 function walkDog() {
@@ -75,7 +87,7 @@ walkDog()
   });
 ```
 
-3. Promise (resolve, reject)
+- Promise (resolve, reject)
 
 ```javascript
 function walkDog() {
