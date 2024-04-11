@@ -301,8 +301,8 @@ dogs[2] = 'Beau'
 print(dogs) # ['Roger', 1, 'Syd', True]
 print(dogs[-1]) # True
 print(dogs[1:3]) # [1, 'Beau']
-print(dogs[1:]) #
-print(dogs[:3]) #
+print(dogs[1:]) # [1, 'Syd', True]
+print(dogs[:3]) # ['Roger', 1, 'Syd']
 print(len(dog)) # 4
 
 # add item to lists
@@ -325,8 +325,324 @@ print(items) # ['Roger', 1, 'Test', 'Syd', True, 'Quincy', 7]
 items[1:1] = ['Test1', 'Test2']
 print(items)
 
+```
+
+Sorting Lists
+
+```python
 # Sorting Lists
 items = ['Roger', 'Syd', 'Beau', 'Quincy']
 items.sort()
 print(items) # ['Beau', 'Quincy', 'Roger', 'Syd']
+
+# 使用大小寫 也會有差異
+items = ['Roger', 'beau', 'Beau', 'Quincy']
+items.sort()
+print(items) # ['Beau', 'Quincy', 'Roger', , 'beau']
+
+# 全部變小寫在 sort
+items = ['Roger', 'bob', 'Beau', 'Quincy']
+items.sort(key=str.lower)
+print(items) # ['Beau', 'bob', 'Quincy', 'Roger']
+
+# 使用 sorted
+items = ['Roger', 'bob', 'Beau', 'Quincy']
+print(sorted(items, key=str.lower)) # ['Beau', 'bob', 'Quincy', 'Roger']
+print(items) # ['Roger', 'bob', 'Beau', 'Quincy']
+```
+
+Tuples
+
+```python
+names = ('Roger', 'Syd')
+
+print(names[0]) # Roger
+print(names.index('Roger')) # 0
+print(names[-1]) # Syd
+print(len(names)) # 2
+print('Roger' in names) # True
+
+names = ('Roger', 'Syd', 'Beau')
+print(sorted(names)) # ['Beau', 'Roger', 'Syd']
+
+newTuple = names + ('Tina', 'Quincy')
+print(newTuple) # ('Roger', 'Syd', 'Beau', 'Tina', 'Quincy')
+```
+
+Dictionaries
+
+```python
+# Dictionaries
+dog = {'name': 'Roger', 'age': 8}
+
+print(dog['name']) # Roger
+
+dog['name'] = 'Syd'
+print(dog) # {'name': 'Syd', 'age': 8}
+
+# 使用 get
+print(dog.get('name')) # Syd
+print(dog.get('color')) # None
+print(dog.get('color', 'brown')) # 如果沒有 'color' return 'brown'
+
+dog = {'name': 'Roger', 'age': 8, 'color': 'green'}
+print(dog.get('color', 'brown')) # green (因為 Dictionaries 裡面有 'color': 'green')
+
+# 使用 pop
+dog = {'name': 'Roger', 'age': 8, 'color': 'green'}
+print(dog.pop('name')) # Roger
+print(dog) # {'age': 8, 'color': 'green'}
+
+dog = {'name': 'Roger', 'age': 8, 'color': 'green'}
+print(dog.popitem()) # ('color', 'green')
+print(dog) # {'name': 'Roger', 'age': 8}
+
+dog = {'name': 'Roger', 'age': 8, 'color': 'green'}
+print('color' in dog) # True
+print(dog.keys()) # dict_keys(['name', 'age', 'color'])
+print(list(dog.keys())) # ['name', 'age', 'color'] (真正的 list 而不是上述的 dict_keys(['name', 'age', 'color']))
+print(list(dog.values())) # ['Roger', 8, 'green']
+print(list(dog.items())) # [('name', 'Roger'), ('age', 8), ('color', 'green')]
+print(len(dog)) # 3
+
+dog['favorite food'] = 'Meat'
+print(dog) # {'name': 'Roger', 'age': 8, 'color': 'green', 'favorite food': 'Meat'}
+
+del dog['color']
+print(dog) # {'name': 'Roger', 'age': 8, 'favorite food': 'Meat'}
+
+dogCopy = dog.copy()
+print(dogCopy) # {'name': 'Roger', 'age': 8, 'favorite food': 'Meat'}
+```
+
+Sets
+
+```python
+# Sets
+set1 = {'Roger', 'Syd'}
+set2 = {'Roger'}
+
+intersect = set1 & set2
+print(intersect) # {'Roger'}
+
+set1 = {'Roger', 'Syd'}
+set2 = {'Luna'}
+
+mod = set1 | set2
+print(mod) # {'Luna', 'Roger', 'Syd'}
+
+set1 = {'Roger', 'Syd'}
+set2 = {'Roger'}
+
+mod = set1 - set2
+print(mod) # {'Syd'}
+
+set1 = {'Roger', 'Syd'}
+set2 = {'Roger'}
+
+mod = set1 > set2
+print(mod) # True
+mod = set1 < set2
+print(mod) # False
+
+set1 = {'Roger', 'Syd'}
+set2 = {'Roger'}
+print(list(set1)) # ['Syd', 'Roger']
+
+set1 = {'Roger', 'Syd', 'Roger'}
+set2 = {'Roger'}
+print(list(set1)) # ['Syd', 'Roger']
+```
+
+Functions
+
+```python
+# Functions
+def hello(name="my friend"):
+    print('Hello ' + name)
+
+hello('Peter')
+hello() # 如果沒有pass argument 則會使用預設 my friend
+
+def helloA(name, age):
+    print('Hello ' + name + ', you are ' + str(age) + ' years old.')
+helloA('Beau', 18)
+
+def change(value):
+  value = 2
+
+val = 1
+change(val)
+
+print(val) # 1
+
+def change1(value):
+  value['name'] = 'Syd'
+
+val = {'name': 'beau'}
+change(val)
+print(val) # {'name': 'beau'}
+
+def helloB(name):
+  if not name:
+    return
+  print('Hello ' + name + '!')
+
+helloB(False)
+helloB("Beau") # Hello Beau!
+
+def helloC(name):
+  print('Hello ' + name + '!')
+  return name, 'Beau', 8
+
+print(helloC('Syd'))
+# Hello Syd!
+# ('Syd', 'Beau', 8)
+```
+
+Variable Scope
+
+```python
+# Variable Scope
+age = 8
+
+def test():
+  age = 6
+  print(age)
+
+print(age) # 8
+test() # 6
+```
+
+Nested Functions
+
+```python
+def talk(phrase):
+  def say(word):
+    print(word)
+
+  words = phrase.split(' ')
+  for word in words:
+    say(word)
+
+talk('I am going to buy the milk')
+
+# 另一個範例
+def count():
+  count = 0
+
+  def increment():
+    nonlocal count
+    count = count + 1
+    print(count)
+
+  increment()
+
+count() # 1
+```
+
+Closures
+
+```python
+def counter():
+  count = 0
+
+  def increment():
+    nonlocal count
+    count = count + 1
+    return count
+
+  return increment
+
+increment = counter()
+
+print(increment()) # 1
+print(increment()) # 2
+print(increment()) # 3
+```
+
+Objects
+
+```python
+# Objects
+age = 8
+
+print(age.real) # 8
+print(age.imag) # 0
+print(age.bit_length()) # 4
+
+items = [1, 2]
+items.append(3)
+items.pop()
+print(id(items))
+```
+
+Loops
+
+```python
+# While Loops
+condition = True
+while condition == True:
+  print('The condition is True')
+  condition = False
+
+count = 0
+while count < 10:
+  print('The while condition is True')
+  count += 1
+print('After the loop')
+
+# For loops
+items = [1, 2, 3, 4]
+for item in items:
+  print(item)
+
+names = ['beau', 'syd', 'quincy']
+for index, item in enumerate(names):
+  print(index, item)
+
+# 也可以給定一個範圍從 0 開始不包含 15
+for item in range(15):
+  print(item)
+```
+
+Break and Continue
+
+```python
+items = [1, 2, 3, 4]
+
+for item in items:
+  if item == 2:
+    continue
+  print(item)
+
+for item in items:
+  if item == 2:
+    break
+  print(item)
+```
+
+Classes
+
+```python
+# Classes and 繼承
+class Animal:
+  def walk(self):
+    print('Walking...')
+
+class Dog(Animal):
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def bark(self):
+    print('woof!')
+
+roger = Dog('Roger', 8)
+
+print(type(roger))
+print(roger.name)
+print(roger.age)
+roger.bark()
+roger.walk()
 ```
