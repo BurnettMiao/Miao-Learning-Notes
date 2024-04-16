@@ -640,9 +640,158 @@ class Dog(Animal):
 
 roger = Dog('Roger', 8)
 
-print(type(roger))
-print(roger.name)
-print(roger.age)
-roger.bark()
-roger.walk()
+print(type(roger)) # <class '__main__.Dog'>
+print(roger.name) # Roger
+print(roger.age) # 8
+roger.bark() # woof!
+roger.walk() # Walking...
+```
+
+Modules
+
+```python
+# dog.py 裡面的內容
+def bark():
+  print('woof!')
+```
+
+```python
+# 創建一個lib資料夾裡面有 __init__.py 檔案，並且把所有 modules 放在一起，創建一個 dog.py的檔案
+
+# 所有dog.py的東西都會一起進來
+# import dog
+# dog.bark() # woof!
+
+# 只進來bark
+# from lib.dog import bark
+# bark() # woof!
+
+# 如果有資料夾放很多modules只進來dog.py
+# from lib import dog
+# dog.bark() # woof!
+
+# 如果有資料夾放很多modules且只進來dog.py的bark
+# from lib.dog import bark
+# bark() # woof!
+
+# Python standard library import
+# import math
+# print(math.sqrt(4)) #2.0
+
+from math import sqrt
+print(sqrt(4)) # 2.0
+```
+
+Arguments from Command Line
+
+```python
+# Accepting Arguments
+
+# import sys
+
+# name = sys.argv[1]
+
+# 在 Terminal 輸入 python test-01.py beau 39
+
+#print(sys.argv) # ['test-01.py', 'beau', '39']
+#print('Hello ' + name) # Hello beau
+
+import argparse
+
+parser = argparse.ArgumentParser(
+  description = 'This program prints the name of my dogs'
+)
+
+parser.add_argument('-c', '--color', metavar='color', required=True, choices={'red', 'yellow'}, help='the color to search for')
+
+args = parser.parse_args()
+
+print(args.color)
+```
+
+Lambda Functions
+
+```python
+# Lambda Functions
+lambda num : num * 2
+
+multiply = lambda a, b : a * b
+
+print(multiply(2, 4)) # 8
+```
+
+Map, Filter, Reduce
+
+```python
+# map()
+# numbers = [1, 2, 3]
+
+# def double(a):
+#   return a * 2
+
+# result = map(double, numbers)
+
+# print(list(result)) # [2, 4, 6]
+
+# 或是
+
+# numbers = [1, 2, 3]
+
+# double = lambda a : a * 2
+
+# result = map(double, numbers)
+
+# print(list(result)) # [2, 4, 6]
+
+# 或是
+
+numbers = [1, 2, 3]
+
+result = map(lambda a : a * 2, numbers)
+
+print(list[result]) # [2, 4, 6]
+```
+
+```python
+# filter()
+# numbers = [1, 2, 3, 4, 5, 6]
+
+# def isEven(n):
+#   return n % 2 == 0
+
+# result = filter(isEven, numbers)
+
+# print(list(result)) # [2, 4, 6]
+
+# 或是
+numbers = [1, 2, 3, 4, 5, 6]
+
+result = filter(lambda n : n % 2 == 0, numbers)
+
+print(list(result)) # [2, 4, 6]
+```
+
+```python
+# reduce()
+# expenses = [
+#   ('Dinner', 80), ('Car repair', 120)
+# ]
+
+# sum = 0
+# for expense in expenses:
+#   sum += expense[1]
+
+# print(sum) # 200
+
+# 或是使用 reduce
+from functools import reduce
+expenses = [
+  ('Dinner', 80),
+  ('Car repair', 120)
+]
+
+sum = reduce(lambda a, b: a[1] + b[1], expenses)
+
+print(sum)
+
 ```
