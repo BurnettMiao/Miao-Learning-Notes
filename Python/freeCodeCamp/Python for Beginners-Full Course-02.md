@@ -795,3 +795,221 @@ sum = reduce(lambda a, b: a[1] + b[1], expenses)
 print(sum)
 
 ```
+
+Recursion
+
+```python
+# Recursion
+
+# factorial 階乘
+# 3! = 3 * 2 * 1 =6
+# 4! = 4 * 3 * 2 * 1 = 24
+# 5! = 5 * 4 * 3 * 2 * 1 = 120
+
+# resursive 是遞迴的意思
+
+def factorial(n):
+  if n == 1: return 1
+  return n * factorial(n - 1)
+
+print(factorial(3))
+print(factorial(4))
+print(factorial(5))
+```
+
+Decorators
+
+```python
+# Decorators
+def logtime(func):
+  def wrapper():
+    # do something before
+    print('before')
+    val = func()
+    # do something after
+    print('after')
+    return val
+  return wrapper
+
+@logtime
+def hello():
+  print('Hello')
+
+hello()
+
+# 顯示順序為
+# before
+# Hello
+# after
+```
+
+Docstrings
+
+```python
+# Docstrings
+
+""" Dog module
+This module does ... bla bla bla and provides the following class:
+- Dog
+...
+"""
+
+def increment(n):
+  """Increment a number"""
+  return n + 1
+
+class Dog:
+  """A class representing a dog"""
+  def __init__(self, name, age):
+    """Initizliza a new dog"""
+    self.name = name
+    self.age = age
+  def bark(self):
+    """Let the dog bark"""
+    print('WOF!')
+
+print(help(Dog))
+```
+
+Annotations
+
+```python
+# Annotations
+
+def increment(n: int) -> int:
+  return n + 1
+
+count: int = 0
+```
+
+Exceptions
+
+```python
+# Exceptions
+
+# 範例寫法
+# try:
+#   # some line of code
+# except <ERROR1>:
+#   # handler <ERROR1>
+# except <ERROE2>:
+#   # handler <ERROE2>
+# else:
+#   # no exceptions were raised, the code ran successfully
+# finally:
+#   # do something in any case
+
+try:
+  result = 2 / 0
+except ZeroDivisionError:
+  print('Cannot divide by Zero!')
+finally:
+  result = 1
+
+print(result) # 1
+
+# 另一個練習
+try:
+  raise Exception('An error!')
+except Exception as error:
+  print(error) # An error!
+
+# 另一個練習
+class DogNotFoundException(Exception):
+  print('inside')
+  pass
+
+try:
+  raise DogNotFoundException()
+except DogNotFoundException:
+  print('Dog not found!')
+```
+
+With
+
+```python
+# With
+filename = '/Users/flavio/test.txt'
+
+# try:
+#   file = open(filename, 'r')
+#   content = file.read()
+#   print(content)
+# finally:
+#   file.close()
+
+# 使用 with 寫法
+with open(filename, 'r') as file:
+  content = file.open()
+  print(content)
+```
+
+Installing Packages with pip
+
+```python
+# Installing Packages with pip
+# 在Terminal 輸入 pip install + 常用的函式庫。如 pip install requests
+# 如要升級版本則是輸入 pip install -U requests
+# 輸入 pip show requests 則可以看到 requests 資訊
+```
+
+List Compression
+
+```python
+# List Compression
+# numbers = [1, 2, 3, 4, 5]
+# numbers_power_2 = [n**2 for n in numbers]
+
+# print(numbers_power_2)
+
+# 使用 Loop 的方式
+numbers = [1, 2, 3, 4, 5]
+numbers_power_2 = []
+for n in numbers:
+  numbers_power_2.append(n**2)
+
+print(numbers_power_2)
+```
+
+Polymorphism
+
+```python
+# Polymorphism
+
+class Dog:
+  def eat(self):
+    print('Eating dog food')
+
+class Cat:
+  def eat(self):
+    print('Eating cat food')
+
+animal1 = Dog()
+animal2 = Cat()
+
+animal1.eat()
+animal2.eat()
+```
+
+Operator Overloading
+
+其他可用的 meohods
+<img src="assets/Operator Overloading.jpg" width="600" alt="" />
+
+```python
+# Operator Overloading
+
+class Dog:
+  # the Dog class:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+  def __gt__(self, other):
+    return True if self.age > other.age else False
+
+roger = Dog('Roger', 8)
+syd = Dog('Syd', 7)
+
+print(roger > syd)
+
+```
