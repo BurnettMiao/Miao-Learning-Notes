@@ -21,7 +21,7 @@ ranks = [
   {'rank': '10', 'value': 10},
   {'rank': 'J', 'value': 10},
   {'rank': 'Q', 'value': 10},
-  {'rank': 'R', 'value': 10},
+  {'rank': 'K', 'value': 10},
 ]
 
 for suit in suits:
@@ -42,11 +42,5 @@ shuffle()
 card = deal(1)[0]
 
 print(card[1]['value'])
-
-```
-
-Blackjack - Derk Class
-
-```python
 
 ```
