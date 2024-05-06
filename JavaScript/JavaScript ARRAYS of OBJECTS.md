@@ -69,4 +69,11 @@ const minFruit = fruits.reduce((min, fruit) =>
 
 console.log(maxFruit);
 console.log(minFruit);
+
+// ---------- order() ----------
+
+const orderItem = fruits.sort((fruitA, fruitB) => {
+  return fruitA.calories > fruitB.calories ? 1 : -1;
+});
+console.log(orderItem);
 ```
