@@ -1,5 +1,7 @@
 ## JavaScript ARRAYS of OBJECTS
 
+[JavaScript 陣列處理常用方法](https://dylan237.github.io/array-methods.html)
+
 Array of methods
 
 - splice methods
