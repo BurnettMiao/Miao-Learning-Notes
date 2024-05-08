@@ -146,27 +146,43 @@ walkDog()
 實測
 
 ```javascript
-let namesArr = [];
+const nameArr = [];
 
-function promiseA() {
+const url = 'https://jsonplaceholder.typicode.com/users';
+
+function promiseA(url) {
   return new Promise((resolve, reject) => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then((res) => res.json())
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('response was not ok!');
+        } else {
+          return res.json();
+        }
+      })
       .then((data) => {
         data.forEach((item) => {
-          resolve(namesArr.push(item.name));
+          console.log(item.name);
+          nameArr.push(item.name);
         });
+        resolve(nameArr);
+      })
+      .catch((err) => {
+        console.log(err);
+        reject(err);
       });
   });
 }
 
 function promiseB() {
-  return new Promise((resolve, reject) => {
-    console.log(namesArr);
-  });
+  console.log(nameArr);
 }
 
-promiseA().then(() => {
-  return promiseB();
-});
+promiseA(url)
+  .then(() => {
+    return promiseB();
+  })
+  .catch((value) => {
+    console.log(value);
+  });
 ```
