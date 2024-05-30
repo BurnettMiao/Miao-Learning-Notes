@@ -78,4 +78,14 @@ const orderItem = fruits.sort((fruitA, fruitB) => {
   return fruitA.calories > fruitB.calories ? 1 : -1;
 });
 console.log(orderItem);
+
+const minToHigh = fruits.sort((a, b) => {
+  return a.calories - b.calories;
+});
+console.log(minToHigh);
+
+const highToMin = fruits.sort((a, b) => {
+  return b.calories - a.calories;
+});
+console.log(highToMin);
 ```
