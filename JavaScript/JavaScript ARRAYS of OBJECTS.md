@@ -7,7 +7,7 @@ Array of methods
 - splice methods
 - slice methods 淺拷貝
 - includes methods
-- order methods
+- sort methods
 - reduce methods
 - every methods
 - some methods
@@ -73,7 +73,7 @@ const minFruit = fruits.reduce((min, fruit) =>
 console.log(maxFruit);
 console.log(minFruit);
 
-// ---------- order() ----------
+// ---------- sort() ----------
 const orderItem = fruits.sort((fruitA, fruitB) => {
   return fruitA.calories > fruitB.calories ? 1 : -1;
 });
