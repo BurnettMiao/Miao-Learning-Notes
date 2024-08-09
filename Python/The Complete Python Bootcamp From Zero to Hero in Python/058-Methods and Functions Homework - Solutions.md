@@ -2,6 +2,7 @@
 
 ```python
 # 練習一
+# 練習一
 def vol(rad):
     return (4/3)*(3.14)*(rad**3)
 x = vol(2)
@@ -65,4 +66,39 @@ x = unique_list([1,1,1,1,1,1,2,2,2,2,2,3,3,3,3,4,5])
 print(x)
 
 # 練習五
+def multiply(numbers):
+    total = 1
+    for num in numbers:
+        total = total * num
+    return total
+x = multiply([1,2,3,-4])
+print(x)
+
+# 練習六
+def palindrome(s):
+    # REMOVE SPACES STRING
+    s = s.replace(' ', '')
+    # Check is string is == reversed version of the string
+    return s == s[::-1]
+
+x = palindrome('nurses run')
+print(x)
+
+# 練習七
+import string
+def ispangram(str1, alphabet=string.ascii_lowercase):
+    # Create a set of the alphabet
+    alphaset = set(alphabet)
+    print(alphaset)
+    # Remove any spaces from the input string
+    str1 = str1.replace(' ', '')
+    # Convert into all lowercase
+    str1 = str1.lower()
+    # Grab all unique letters from the string set()
+    str1 = set(str1)
+    # alphabet set == string set input
+    return str1 == alphaset
+
+x = ispangram('The quick brown fox jumps over the lazy dog')
+print(x)
 ```
