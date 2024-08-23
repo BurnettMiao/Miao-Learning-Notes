@@ -11,4 +11,27 @@ def display_board(board):
 # test_board = ['#', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
 test_board = [' ']*10
 display_board(test_board)
+
+
+def player_input():
+
+    marker = ''
+
+    # KEEP ASKING PLAYER 1 TO CHOOSE X or O
+    while marker != 'X' and marker != 'O':
+        marker = input("Player 1, choose X or O: ")
+
+
+    # ASSIGN PLAYER 2, the opposite marker
+    player1 = marker
+
+    if player1 == 'X':
+        player2 = 'O'
+    else:
+        player2 = 'X'
+
+    return (player1, player2)
+
+
+
 ```
