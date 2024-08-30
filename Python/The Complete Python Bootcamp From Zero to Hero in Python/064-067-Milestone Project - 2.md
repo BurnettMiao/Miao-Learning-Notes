@@ -1,6 +1,8 @@
 ### 064-067-Milestone Project - 2
 
 ```python
+from IPython.display import clear_output
+
 def display_board(board):
     clear_output()
     print(board[1]+"|"+board[2]+"|"+board[3])
