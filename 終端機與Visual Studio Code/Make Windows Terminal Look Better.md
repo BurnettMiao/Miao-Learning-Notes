@@ -8,6 +8,10 @@
 
 使用 **quick-term**
 
+[Windows Terminal Themes](https://windowsterminalthemes.dev/)
+
+[Dracula Theme for Windows Terminal](https://draculatheme.com/windows-terminal)
+
 ---
 
 字型下載網站
