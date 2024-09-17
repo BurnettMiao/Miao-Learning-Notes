@@ -8,6 +8,8 @@
 
 使用 **quick-term**
 
+使用 **powerlevel10k_rainbow**
+
 [Windows Terminal Themes](https://windowsterminalthemes.dev/)
 
 [Dracula Theme for Windows Terminal](https://draculatheme.com/windows-terminal)
