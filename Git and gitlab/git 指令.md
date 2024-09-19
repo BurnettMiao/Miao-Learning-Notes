@@ -24,3 +24,11 @@
    - origin: 遠端儲存庫的名稱（在第一步中我們設置的 origin）。
    - main: 本地的 main 分支將會推送到遠端的 main 分支。<br>
      總結：這行命令將本地的 main 分支推送到遠端的 origin 儲存庫中的 main 分支，並將其設置為默認的追蹤分支，以後可以直接使用 git push 推送更新。
+
+---
+
+如果你想一次將所有更改加入 Git，包含已修改、已刪除和未跟蹤的檔案，可以使用以下的指令：
+
+git add -A
+
+這個指令會：將所有已修改 (modified)、已刪除 (deleted) 和未跟蹤 (untracked) 的檔案加入到暫存區（staging area）。
