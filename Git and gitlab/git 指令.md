@@ -32,3 +32,10 @@
 git add -A
 
 這個指令會：將所有已修改 (modified)、已刪除 (deleted) 和未跟蹤 (untracked) 的檔案加入到暫存區（staging area）。
+
+---
+
+使用 git log 之後再使用 q 則可以跳出。<br>
+使用 git log --oneline 簡短顯示每個提交，只有提交哈希值和提交訊息。<br>
+使用 git log --graph --oneline 顯示提交歷史的圖形化表示，用來表示分支和合併。<br>
+使用 git cherry-pick (commit-hash) 是 Git 中的一個命令，允許你從一個分支中挑選特定的提交並應用到當前的分支，而不需要合併整個分支。這在你只需要某些變更，而不是整個分支的所有提交時非常有用。
