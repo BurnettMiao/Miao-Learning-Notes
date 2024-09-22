@@ -10,6 +10,8 @@
 
 使用 **powerlevel10k_rainbow**
 
+使用 **bubblesextra**
+
 [Windows Terminal Themes](https://windowsterminalthemes.dev/)
 
 [Dracula Theme for Windows Terminal](https://draculatheme.com/windows-terminal)
