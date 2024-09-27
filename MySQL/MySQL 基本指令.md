@@ -38,6 +38,10 @@ INSERT INTO `gj_accounts` VALUES('gjun_awf@pcschool.tv', 'Awf23881275');
 
 
 SELECT * FROM `gj_accounts`;
+
+
+ALTER TABLE `gj_courses`
+ADD `course_number` VARCHAR(100);
 ```
 
 ```sql
