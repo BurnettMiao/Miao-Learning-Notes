@@ -42,6 +42,17 @@ SELECT * FROM `gj_accounts`;
 
 ALTER TABLE `gj_courses`
 ADD `course_number` VARCHAR(100);
+
+
+UPDATE `gj_courses_db`
+SET `recording_enable` = TRUE
+WHERE `meet_id` = 'osr-ninh-auo';
+
+
+UPDATE `gj_courses`
+SET `recording_enabled` = TRUE
+WHERE `meet_id` IN ('swj-vahs-cqm', 'abc-def-ghi', 'xyz-uvw-rst');
+
 ```
 
 ```sql
