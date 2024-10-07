@@ -80,3 +80,24 @@ SELECT * FROM `gj_courses`;
 DELETE FROM `gj_courses`
 WHERE `meet_id` = 'hax-xdiz-wkc';
 ```
+
+**Left join 語法**
+在 MySQL 中，LEFT JOIN 是一種連接方式，用來從左表中返回所有的記錄，即使在右表中沒有對應的匹配記錄。如果右表沒有匹配的記錄，則右表的相關欄位將返回 NULL。
+table1 是左表，table2 是右表。
+LEFT JOIN 返回左表中的所有記錄，並將右表中符合條件的記錄連接起來。如果右表中沒有匹配的記錄，則相應的欄位為 NULL。
+
+```sql
+SELECT columns
+FROM table1
+LEFT JOIN table2
+ON table1.column = table2.column;
+```
+
+**Left join 實例**
+
+```sql
+SELECT students.name, courses.course_name
+FROM students
+LEFT JOIN courses
+ON students.student_id = courses.student_id;
+```
