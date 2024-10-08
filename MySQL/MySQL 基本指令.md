@@ -101,3 +101,34 @@ FROM students
 LEFT JOIN courses
 ON students.student_id = courses.student_id;
 ```
+
+**刪除 table 裡面的 column**
+
+```sql
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+```
+
+**刪除 table 裡面的 column 的實例**
+從 gj_courses 的 table 刪除 gj_password 這個 column
+
+```sql
+ALTER TABLE `gj_courses`
+DROP COLUMN `gj_password`;
+```
+
+**在 gj_accounts 表中新增一個名為 in_use 的欄位**
+增加預設值為 0 和不允許 NULL
+
+```sql
+ALTER TABLE `gj_accounts`
+ADD `in_use` INT NOT NULL DEFAULT 0;
+```
+
+**在 gj_courses 表中新增一個名為 forbidden_anyone_join 的布林值欄位**
+
+```sql
+ALTER TABLE `gj_courses`
+ADD `forbidden_anyone_join` BOOLEAN;
+```
