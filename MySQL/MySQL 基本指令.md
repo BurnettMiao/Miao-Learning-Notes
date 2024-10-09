@@ -139,3 +139,9 @@ ADD `forbidden_anyone_join` BOOLEAN;
 INSERT INTO `gj_accounts` (gj_account, gj_password, in_use)
 VALUES ('GJ-test-01@pcschool.tv', 'GJ-test-01-1009', 0), ('GJ-test-02@pcschool.tv', 'GJ-test-02-1009', 0), ('GJ-en-01@pcschool.tv', 'GJ-en-01-1009', 0), ('GJ-en-02@pcschool.tv', 'GJ-en-02-1009', 0), ('GJ-jp-01@pcschool.tv', 'GJ-jp-01-1009', 0), ('GJ-jp-02@pcschool.tv', 'GJ-jp-02-1009', 0), ('GJ-germany-01@pcschool.tv', 'GJ-germany-01-1009', 0), ('GJ-germany-02@pcschool.tv', 'GJ-germany-02-1009', 0);
 ```
+
+**修改 mysql 密碼**
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'GJ_db_test_2024';
+```
