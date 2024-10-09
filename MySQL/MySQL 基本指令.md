@@ -145,3 +145,21 @@ VALUES ('GJ-test-01@pcschool.tv', 'GJ-test-01-1009', 0), ('GJ-test-02@pcschool.t
 ```sql
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'GJ_db_test_2024';
 ```
+
+**假設想根據 gj_account 欄位的值修改多個不同的 gj_password 和 in_use 狀態，你可以這樣做：**
+
+```sql
+UPDATE gj_accounts
+SET
+    gj_password = CASE
+        WHEN gj_account = 'GJ-test-01@pcschool.tv' THEN 'new_password_1'
+        WHEN gj_account = 'GJ-test-02@pcschool.tv' THEN 'new_password_2'
+        ELSE gj_password  -- 不符合條件的行保持原值
+    END,
+    in_use = CASE
+        WHEN gj_account = 'GJ-test-01@pcschool.tv' THEN 1
+        WHEN gj_account = 'GJ-test-02@pcschool.tv' THEN 0
+        ELSE in_use  -- 不符合條件的行保持原值
+    END
+WHERE gj_account IN ('GJ-test-01@pcschool.tv', 'GJ-test-02@pcschool.tv');
+```
