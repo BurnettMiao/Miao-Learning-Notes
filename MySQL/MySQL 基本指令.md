@@ -132,3 +132,10 @@ ADD `in_use` INT NOT NULL DEFAULT 0;
 ALTER TABLE `gj_courses`
 ADD `forbidden_anyone_join` BOOLEAN;
 ```
+
+**在 gj_ccounts 新增多筆數值的方式**
+
+```sql
+INSERT INTO `gj_accounts` (gj_account, gj_password, in_use)
+VALUES ('GJ-test-01@pcschool.tv', 'GJ-test-01-1009', 0), ('GJ-test-02@pcschool.tv', 'GJ-test-02-1009', 0), ('GJ-en-01@pcschool.tv', 'GJ-en-01-1009', 0), ('GJ-en-02@pcschool.tv', 'GJ-en-02-1009', 0), ('GJ-jp-01@pcschool.tv', 'GJ-jp-01-1009', 0), ('GJ-jp-02@pcschool.tv', 'GJ-jp-02-1009', 0), ('GJ-germany-01@pcschool.tv', 'GJ-germany-01-1009', 0), ('GJ-germany-02@pcschool.tv', 'GJ-germany-02-1009', 0);
+```
