@@ -39,3 +39,28 @@ git add -A
 使用 git log --oneline 簡短顯示每個提交，只有提交哈希值和提交訊息。<br>
 使用 git log --graph --oneline 顯示提交歷史的圖形化表示，用來表示分支和合併。<br>
 使用 git cherry-pick (commit-hash) 是 Git 中的一個命令，允許你從一個分支中挑選特定的提交並應用到當前的分支，而不需要合併整個分支。這在你只需要某些變更，而不是整個分支的所有提交時非常有用。
+
+---
+
+在 Git 中，如果你想解除對某個資料夾的追蹤，你可以按照以下步驟進行操作：
+
+1. 將資料夾從 Git 的索引中移除
+
+```bash
+git rm -r --cached <資料夾名稱>
+```
+
+2. 更新 .gitignore
+
+```bash
+/folder_name/
+```
+
+3. 提交變更
+
+```bash
+git add .gitignore
+git commit -m "Stop tracking folder_name"
+```
+
+這樣，該資料夾將不再被 Git 追蹤。注意，這個操作不會刪除本地的檔案或資料夾，只是解除其在 Git 中的追蹤。
