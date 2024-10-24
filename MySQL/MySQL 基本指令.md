@@ -124,6 +124,10 @@ WHERE `meet_id` IN ('kse-ctys-yzg', 'ryy-rnra-xzd', 'qve-gfdm-emv', 'ygy-wxgx-fk
 DELETE FROM `gj_courses`
 WHERE `meet_id` = 'ttt-aaaa-bbb';
 
+-- 從 gj_courses 資料表中刪除 meet_id 的那多行記錄。
+DELETE FROM `gj_courses`
+WHERE `meet_id` IN ('gmx-sohf-eub', 'abc-123-def', 'xyz-456-hij');
+
 -- 從 gj_courses 資料表中刪除名為 gj_password 的欄位
 ALTER TABLE `gj_courses`
 DROP COLUMN `gj_password`;
