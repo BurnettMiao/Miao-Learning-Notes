@@ -16,6 +16,12 @@
    tsc completeOrder.ts
    ```
 
+   或者直接執行也可以編譯:
+
+   ```bash
+   tsc
+   ```
+
 3. 執行編譯後的 JavaScript 文件： 編譯後會生成一個同名的 .js 文件，然後你可以在 Node.js 中執行它：
 
    ```bash
@@ -38,3 +44,12 @@
    ```bash
    ts-node completeOrder.ts
    ```
+
+<br />
+
+**初始化 typescript**
+此步驟會產生出一個 tsconfig.json
+
+```bash
+tsc --init
+```
