@@ -4,17 +4,61 @@
 
 Array of methods
 
-- splice methods
-- slice methods 淺拷貝
-- includes methods
-- sort methods
-- reduce methods
-- every methods
-- some methods
-- forEach methods
-- find methods
-- map methods
-- filter methods
+```javascript
+const fruits = [
+  { name: 'apple', color: 'red', calories: 95 },
+  { name: 'orange', color: 'orange', calories: 45 },
+  { name: 'banana', color: 'yellow', calories: 105 },
+  { name: 'coconut', color: 'white', calories: 159 },
+  { name: 'pineapple', color: 'yellow', calories: 37 },
+];
+
+// ---------- splice methods ----------
+// The splice() method of Array instances changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
+
+// remove elements
+const spliceArr = fruits.splice(0, 2);
+console.log(fruits);
+console.log(spliceArr);
+
+// add elements
+const addFruit = { name: 'peach', color: 'pink', calories: 86 };
+fruits.splice(1, 0, addFruit);
+console.log(fruits);
+
+// ---------- slice methods ----------
+// The slice() method of Array instances returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+
+const newArr = fruits.slice(0, 3);
+console.log(newArr);
+
+// ---------- includes methods ----------
+//
+
+// ---------- sort methods ----------
+//
+
+// ---------- reduce methods ----------
+//
+
+// ---------- every methods ----------
+//
+
+// ---------- some methods ----------
+//
+
+// ---------- forEach methods ----------
+//
+
+// ---------- find methods ----------
+//
+
+// ---------- map methods ----------
+//
+
+// ---------- filter methods ----------
+//
+```
 
 ```javascript
 const fruits = [
