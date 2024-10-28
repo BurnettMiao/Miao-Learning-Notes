@@ -44,16 +44,16 @@ git add -A
 
 在 Git 中，如果你想解除對某個資料夾的追蹤，你可以按照以下步驟進行操作：
 
-1. 將資料夾從 Git 的索引中移除
-
-```bash
-git rm -r --cached <資料夾名稱>
-```
-
-2. 更新 .gitignore
+1. 更新 .gitignore
 
 ```bash
 /folder_name/
+```
+
+2. 將資料夾從 Git 的索引中移除
+
+```bash
+git rm -r --cached <資料夾名稱>
 ```
 
 3. 提交變更
