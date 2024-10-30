@@ -33,3 +33,9 @@ for key in point:
 for key, value in point.items():
     print(key, value)
 ```
+
+---
+
+for key in dictionary:：遍歷字典的每個鍵。
+for value in dictionary.values():：遍歷字典的每個值。
+for key, value in dictionary.items():：遍歷字典的每個鍵值對。

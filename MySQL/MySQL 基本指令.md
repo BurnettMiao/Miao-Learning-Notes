@@ -134,4 +134,18 @@ DROP COLUMN `gj_password`;
 
 -- 更改 MySQL 資料庫中使用者 'root' 在 localhost 主機上的密碼，將其設置為 'GJ_db_test_2024'
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'GJ_db_test_2024';
+
+-- 執行 CREATE INDEX 指令 (單一欄位索引)
+CREATE INDEX idx_end_time ON gj_courses (end_time);
+CREATE INDEX idx_is_download ON gj_courses (is_download);
+
+-- 執行 CREATE INDEX 指令 (多欄位複合索引)
+CREATE INDEX idx_end_time_is_download ON gj_courses (end_time, is_download);
+
+-- 檢查現有索引：確認是否已經有名為 idx_meet_id 的索引。你可以使用以下指令查看表中的索引：
+SHOW INDEX FROM gj_courses;
+SHOW INDEX FROM gj_accounts;
+
+-- 刪除重複的索引（如果索引冗餘）：如果已有相同條件的索引且它已不再需要，可以刪除該索引。使用以下語法刪除索引：
+DROP INDEX idx_meet_id ON gj_courses;
 ```
