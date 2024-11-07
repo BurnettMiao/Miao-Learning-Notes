@@ -1,3 +1,12 @@
+## JavaScript Loops
+
+for：適合已知迭代次數的情況。
+while：適合不確定迭代次數，但要根據條件進行的迴圈。
+do...while：至少執行一次的迴圈。
+for...in：用來遍歷物件的屬性（不推薦用於陣列）。
+for...of：用來遍歷可迭代對象的值（推薦用於陣列、字串、Map、Set 等）。
+break 和 continue：控制迴圈流。
+
 ## for loop
 
 ```javascript
