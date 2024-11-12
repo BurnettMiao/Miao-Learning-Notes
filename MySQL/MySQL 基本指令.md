@@ -149,3 +149,11 @@ SHOW INDEX FROM gj_accounts;
 -- 刪除重複的索引（如果索引冗餘）：如果已有相同條件的索引且它已不再需要，可以刪除該索引。使用以下語法刪除索引：
 DROP INDEX idx_meet_id ON gj_courses;
 ```
+
+---
+
+### MySQL 字型設定
+
+路徑 Edit > Preferences... > Appearance > Fonts & Colors
+
+使用 Consolas 12
