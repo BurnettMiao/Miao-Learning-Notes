@@ -1,0 +1,30 @@
+/* 全局樣式 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.section {
+  height: 1200px; /* 讓每個區塊有足夠的高度來滾動 */
+  padding: 1rem;
+}
+
+.section:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+.section:nth-child(even) {
+  background-color: #d0e7f5;
+}
+
+/* Sticky 標題樣式 */
+.sticky-header {
+  position: sticky;
+  top: 0; /* 停留在視窗頂部 */
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  font-size: 1.5rem;
+  z-index: 1; /* 確保在其他內容之上 */
+}
