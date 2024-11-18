@@ -64,3 +64,15 @@ git commit -m "Stop tracking folder_name"
 ```
 
 這樣，該資料夾將不再被 Git 追蹤。注意，這個操作不會刪除本地的檔案或資料夾，只是解除其在 Git 中的追蹤。
+
+---
+
+1. 使用 git remote 指令
+   - 查看所有遠端
+     ```bash
+     git remote
+     ```
+   - 查看遠端詳細資訊
+     ```bash
+     git remote -v
+     ```
