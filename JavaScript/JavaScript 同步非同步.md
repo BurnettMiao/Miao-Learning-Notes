@@ -1,5 +1,7 @@
 ## JavaScript 同步非同步
 
+[How to FETCH data from an API using JavaScript](https://youtu.be/37vxWr0WgQk?si=_ZRIjoMJxlmIOgkJ)
+
 **fetch**
 
 ```javascript
@@ -20,6 +22,22 @@ fetch('https://jsonplaceholder.typicode.com/users')
   .catch((err) => {
     console.log(err);
   });
+```
+
+```javascript
+fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error('Could not fetch resource.');
+    }
+
+    console.log(response);
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => console.error(error));
 ```
 
 ```javascript
@@ -49,4 +67,25 @@ const getApi = async () => {
   console.log(data);
 };
 getApi();
+```
+
+```javascript
+fetchData();
+
+async function fetchData() {
+  try {
+    const response = await fetch(
+      'https://pokeapi.co/api/v2/pokemon/typhlosion'
+    );
+
+    if (!response.ok) {
+      throw new Error('Could not fetch resource.');
+    }
+
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 ```
