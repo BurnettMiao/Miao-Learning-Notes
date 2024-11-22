@@ -96,7 +96,9 @@ function walkDog() {
       const dogwalked = true;
       if (dogwalked) {
         resolve('You walk the dog!');
-      } else reject("You DIDN'T walk the dog!");
+      } else {
+        reject("You DIDN'T walk the dog!");
+      }
     }, 1500);
   });
 }
