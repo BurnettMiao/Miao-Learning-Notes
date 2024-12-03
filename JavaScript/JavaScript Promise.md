@@ -145,7 +145,7 @@ walkDog()
   .catch((error) => console.error(error));
 ```
 
-實測
+方法一: 實測 promise 寫法
 
 ```javascript
 const nameArr = [];
@@ -187,4 +187,72 @@ promiseA(url)
   .catch((value) => {
     console.log(value);
   });
+```
+
+方法一更優化的寫法
+
+```javascript
+const url = 'https://jsonplaceholder.typicode.com/users';
+
+function promiseA(url) {
+  // 返回 fetch 的 Promise
+  return fetch(url)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('response was not ok.');
+      }
+      return res.json();
+    })
+    .then((data) => {
+      // 返回名字陣列
+      return data.map((item) => item.name);
+    });
+}
+
+function promiseB(nameArr) {
+  console.log('Names: ', nameArr);
+}
+
+promiseA(url)
+  .then((nameArr) => {
+    promiseB(nameArr);
+  })
+  .catch((error) => {
+    console.log('Error: ', error);
+  });
+```
+
+實測 async await 寫法
+
+```javascript
+const url = 'https://jsonplaceholder.typicode.com/users';
+
+async function fetchNames(url) {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error('response was not ok!');
+    }
+
+    const data = await res.json();
+    const nameArr = data.map((item) => {
+      return item.name;
+    });
+    return nameArr;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+async function main() {
+  try {
+    const nameArr = await fetchNames(url);
+    console.log(nameArr);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+main();
 ```
