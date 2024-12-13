@@ -56,6 +56,9 @@
   - docker run --name myapp_c2 -p 4000:4000 -d myapp
     其中 -d 可以放在任意位置這樣也是可以的
 
+**如何執行帶有版本的 docer image**
+docker run --name myapp_c -p 4000:4000 myapp:v1
+
 ---
 
 當你下載了 Node.js 的 Docker 映像並嘗試運行後容器卻立即停止，通常是因為 Docker 容器的預設行為：如果容器內的主進程結束，容器就會停止。這是由於 Node.js 映像中沒有啟動持續運行的進程，而容器的生命週期與主進程綁定。
@@ -146,6 +149,9 @@
     表示構建上下文（build context），即 Docker 構建過程中可用的文件和目錄範圍。
     - . 代表當前目錄，Docker 會使用當前目錄下的 Dockerfile 和其他相關文件進行構建。
 
+- docker build -t myapp:v1 .
+  這是帶有 tag 版本的寫法
+
 ---
 
 忽略某些資料夾不用複製如 node_modules
@@ -183,4 +189,70 @@ docker image rm myapp
 
 # 強制刪除的話加上 -f
 docker image rm myapp5 -f
+```
+
+---
+
+**如何移除 container**
+
+```bash
+docker container rm myapp_c2
+```
+
+---
+
+**移除所有 image container**
+
+```bash
+docker system prune -a
+```
+
+- 功能說明
+
+  - 移除未使用的容器：
+    - 刪除所有處於 已停止（exited）狀態的容器。
+  - 移除未使用的映像（image）：
+
+    - 移除所有 未被任何容器使用的映像，包括中間層映像（intermediate layers）。
+
+  - 移除未使用的網路（network）：
+    - 刪除所有未被使用的 Docker 自定義網路（但不影響默認網路 bridge、host 或 none）。
+  - 不移除 Volume：
+    - 默認不會刪除 Volume，因為它們可能包含重要的數據。
+
+- 總結
+  docker system prune -a 用於清理未使用的 container、image 和 network，但不會刪除 volume。如果需要清理 volume，需額外執行 docker volume prune。
+
+---
+
+**如何與 container 做交互**
+
+```bash
+docker start -i myapp_c
+```
+
+1. 指令結構
+   - docker start：
+     用於啟動已停止的容器。
+     容器必須已存在並處於 stopped（已停止） 狀態。
+   - -i（交互模式）：
+     表示啟動容器後，將把當前的終端連接到容器內部，允許你與容器內的進程進行交互。
+     如果容器的啟動指令（如 CMD 或 ENTRYPOINT）需要用戶輸入，這個選項非常有用。
+   - myapp_c：
+     容器的名稱（或 ID），用於指定需要啟動的容器。
+2. 實際效果
+   - 執行後：
+     - 容器 myapp_c 被啟動。
+     - 如果容器內的進程（如 bash 或 node）支持交互，終端會被附加到容器內部，允許用戶輸入命令。
+     - 按下 Ctrl + C 或進程結束時，容器可能會停止（視容器設置而定）。
+3. 使用場景
+   - 調試和測試： 進入容器，手動測試應用程序的啟動流程或檢查內部狀態。
+   - 需要交互式進程： 如果容器的主進程（如 shell）需要用戶輸入，-i 讓終端可以與進程交互。
+
+---
+
+**尚未**
+
+```bash
+docker run --name myapp_c_nodemon -p 4000:4000 --rm myapp:nodemon
 ```
