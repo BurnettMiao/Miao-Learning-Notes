@@ -251,8 +251,332 @@ docker start -i myapp_c
 
 ---
 
-**尚未**
+**當停止 container 時，整個 container 都會被移除**
 
 ```bash
 docker run --name myapp_c_nodemon -p 4000:4000 --rm myapp:nodemon
 ```
+
+- docker run: 這是 Docker 的命令，用來創建並啟動一個新的容器。
+
+- --name myapp_c_nodemon: 為容器指定一個名稱，這裡是 myapp_c_nodemon。這樣可以更容易地引用這個容器，而不需要使用容器的 ID。
+
+- -p 4000:4000: 這個選項將本機的 4000 端口映射到容器內的 4000 端口。這意味著您可以通過本機的 4000 端口訪問容器內的應用程序，通常用於開發模式下測試 Web 應用。
+
+- --rm: 當容器停止運行時，自動刪除容器。這樣可以避免容器在停止後留在本地系統中，佔用不必要的空間。
+
+- myapp:nodemon: 這是容器使用的映像檔名稱和標籤。在這個例子中，myapp 是映像檔名稱，而 nodemon 是標籤，通常用於指示這個映像檔中包含了 nodemon（一個用於自動重啟 Node.js 應用的工具）。
+
+這條命令的目的是啟動一個基於 myapp:nodemon 映像的容器，並將本機的 4000 端口映射到容器的 4000 端口，同時運行一個 Node.js 應用程序（假設應用程序已經配置為使用 nodemon）。容器停止後會被自動刪除。
+
+---
+
+**指令掛載 volume 的方法**
+
+```bash
+docker run --name myapp_c_nodemon -p 4000:4000 --rm -v C:\Users\burnett\Desktop\docker_course\api\:/app -v /app/node_modules myapp:nodemon
+```
+
+- docker run: 這是 Docker 的基本命令，用來創建並啟動一個新的容器。
+
+- --name myapp_c_nodemon: 為容器指定一個名稱 myapp_c_nodemon。這使得你在需要時可以更方便地引用這個容器，而不是使用容器 ID。
+
+- -p 4000:4000: 這個選項將本地端的端口 4000 映射到容器內的端口 4000。這意味著你可以通過本機的 4000 端口來訪問容器中的應用（通常是 Web 應用）。
+
+- --rm: 這個選項表示當容器停止時，它會自動被刪除，避免容器在停止後佔用磁碟空間。
+
+- -v C:\Users\burnett\Desktop\docker_course\api\:/app: 這是 volume 映射，用於將本地機的 C:\Users\burnett\Desktop\docker_course\api\ 資料夾映射到容器內的 /app 資料夾。這樣一來，容器內部 /app 資料夾的內容會即時同步為本地資料夾的內容，這對開發來說非常有用，可以實現文件的即時更新。
+
+- -v /app/node_modules: 這表示將容器內的 /app/node_modules 目錄掛載為一個 volume。這個操作的目的是為了防止本地端的 node_modules 目錄和容器內的 node_modules 目錄被同步，從而避免在本地和容器間出現不必要的依賴版本衝突。這樣可以確保 node_modules 目錄只存在於容器內，並且不會被映射到本地。
+
+- myapp:nodemon: 這是 Docker 映像的名稱和標籤，myapp 是映像名稱，nodemon 是標籤。這表明容器將基於 myapp:nodemon 映像來啟動，並且這個映像應該包含 nodemon，這是一個用來在文件改動時自動重啟 Node.js 應用的工具。
+
+這條命令的目的是使用 myapp:nodemon 映像創建並啟動一個容器，並將本地端的應用程序資料夾 (C:\Users\burnett\Desktop\docker_course\api\) 映射到容器內的 /app 資料夾，同時確保 node_modules 資料夾只存在於容器內。容器啟動後，本地端的 4000 端口將映射到容器內的 4000 端口，方便用戶訪問應用程序。此外，容器停止後會自動刪除。
+
+---
+
+## docker-compose 指令
+
+**啟動相關指令**
+
+1. 啟動並建構容器
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   - 功能：啟動所有服務，並根據 Dockerfile 重新建構映像檔。
+   - 常用選項：
+     - -d：以後台模式運行。
+     - --force-recreate：強制重新建立容器，即使配置沒有變更。
+
+2. 僅啟動容器
+
+   ```bash
+   docker-compose up
+   ```
+
+   - 功能：啟動服務，但不重新建構映像檔。
+
+**停止相關指令**
+
+3. 停止所有服務
+
+   ```bash
+   docker-compose stop
+   ```
+
+   - 功能：停止正在運行的容器，但不刪除。
+
+4. 完全移除容器
+
+   ```bash
+   docker-compose down
+   ```
+
+   - 功能：停止並刪除所有容器、網路和匿名 Volume。
+   - 常用選項：
+
+     - -v：同時刪除與服務相關的 Volume。
+
+     ***
+
+   4-1
+
+   ```bash
+   docker-compose down --rmi all -v
+   ```
+
+   **指令分解**
+
+   - docker-compose down:
+     - 停止並刪除所有由 docker-compose 啟動的容器、網路和相關資源。
+   - --rmi all:
+     - 刪除與 docker-compose 中服務相關的所有映像檔（images）。
+     - 包括以下兩類：
+       - 由 docker-compose 創建和建構的本地映像檔（基於 build 指令生成）。
+       - 拉取的外部映像檔（基於 image 指令下載的）。
+   - -v:
+     - 刪除與 docker-compose 服務相關的所有 命名 Volume 和 匿名 Volume。
+     - 注意：只刪除和 docker-compose 定義的服務相關的 Volume，不影響其他容器使用的 Volume。
+
+   **實際效果**
+   執行這段指令會：
+
+   - 停止並刪除 docker-compose 啟動的所有容器。
+   - 刪除所有相關的映像檔，無論是本地建構的還是從 Docker Hub 拉取的。
+   - 刪除與這些容器相關的 Volume，包括匿名和命名的。
+
+     **使用場景**
+
+   1. 清理開發環境： 如果你正在開發某個專案，並需要重置所有相關的容器、映像檔和數據（Volume），這是非常方便的指令。
+   2. 釋放空間： 當 Docker 中積累了大量不再需要的映像檔或 Volume 時，可以通過這個指令釋放存儲空間。
+   3. 重建服務環境： 在測試中，若需要清理舊的環境並從頭開始，可以使用這個指令刪除所有相關資源，然後重新啟動。
+
+   **使用場景**
+
+   1. 風險：
+      - 執行這個指令會永久刪除所有容器、映像檔和 Volume，數據不可恢復。
+      - 如果有重要數據，請提前備份。
+   2. 映像檔重新下載： 如果刪除了外部拉取的映像檔，下一次運行 docker-compose up 可能需要重新下載，會耗費額外的時間和網路資源。
+   3. 匿名 Volume： 刪除匿名 Volume 可能導致丟失容器中存儲的數據（如資料庫的數據文件）。
+
+**建構相關指令**
+
+5. 建構或重新建構映像檔
+
+   ```bash
+   docker-compose build
+   ```
+
+   - 功能：從 Dockerfile 重新建構映像檔。
+   - 常用選項：
+     - --no-cache：建構時不使用快取。
+
+**日誌與監控**
+
+6. 檢視容器日誌
+
+   ```bash
+   docker-compose logs
+   ```
+
+   - 功能：查看服務的運行日誌。
+   - 常用選項：
+     - -f：即時追蹤日誌輸出。
+     - --tail N：只顯示最近 N 行日誌。
+
+7. 監控容器狀態
+
+   ```bash
+   docker-compose ps
+   ```
+
+   - 功能：查看所有服務的運行狀態。
+
+**進階操作**
+
+8. 執行特定容器中的指令
+
+   ```bash
+   docker-compose exec <service_name> <command>
+   ```
+
+   - 功能：在指定服務的容器中執行命令。
+   - 示例：
+
+     ```bash
+     docker-compose exec api bash
+     ```
+
+     進入名為 api 的服務容器內部，啟動 bash。
+
+9. 啟動單個服務
+
+   ```bash
+   docker-compose up <service_name>
+   ```
+
+   - 功能：僅啟動指定服務。
+   - 示例：
+
+     ```bash
+     docker-compose up api
+     ```
+
+10. 刪除所有匿名 Volume
+
+    ```bash
+    docker volume prune
+    ```
+
+    - 功能：刪除所有未使用的匿名 Volume。
+
+**配置檢查**
+
+11. 檢查配置文件
+
+    ```bash
+    docker-compose config
+    ```
+
+    - 功能：檢查 docker-compose.yaml 的語法和配置是否正確。
+
+**範例操作**
+
+1. 假設你的 docker-compose.yaml 文件如下：
+
+   ```yaml
+   version: '3.8'
+   services:
+     api:
+       build: ./api
+       container_name: api_c
+       ports:
+         - '4000:4000'
+       volumes:
+         - ./api:/app
+         - /app/node_modules
+   ```
+
+2. 啟動並進入容器
+
+   ```bash
+   docker-compose up -d --build  # 啟動並後台運行
+   docker-compose exec api bash  # 進入名為 api 的容器
+   ```
+
+3. 停止並刪除容器
+
+   ```bash
+   docker-compose down -v  # 停止所有服務並刪除容器與 Volume
+   ```
+
+---
+
+**使用 docker-compose.yaml 掛載 volume 的方法**
+
+如果你希望 node_modules 僅由容器管理，而不依賴本地的 node_modules，可以這樣配置：
+
+```yaml
+version: '3.8'
+services:
+  api:
+    build: ./api
+    container_name: api_c
+    ports:
+      - '4000:4000'
+    volumes:
+      # 本地程式碼與容器同步
+      - ./api:/app
+      # 使用匿名 volume，讓 node_modules 獨立存在於容器內
+      - /app/node_modules
+```
+
+1. ./api:/app：
+
+   - 映射本地程式碼到容器內的 /app，確保本地開發的變更即時反映到容器中。
+
+2. /app/node_modules：
+
+   - 創建一個匿名 Volume，用於容器內的 node_modules。
+   - 不會同步本地的 node_modules，容器內部的 node_modules 會獨立管理，並且只存在於容器內。
+
+**為什麼要獨立管理 node_modules**
+
+1. 避免本地與容器依賴的衝突： 本地和容器可能使用不同的 Node.js 版本或平台，導致 node_modules 的二進位檔案（如 \*.node）不兼容。
+
+2. 提高容器的穩定性和一致性： 讓容器依賴於其內部的 node_modules，確保在任何機器上執行時都保持一致的環境。
+
+3. 本地端清潔性： 如果開發過程中不需要本地安裝的依賴，這樣的方式可以保持本地目錄的簡潔，只需要專注於程式碼。
+
+如果你的需求是不與本地端的 node_modules 做同步，應該使用匿名 Volume，這樣可以保證環境隔離性，避免開發過程中出現依賴衝突。
+
+**路徑不完整情況**
+
+如果在 docker-compose.yaml 中寫 - ./app/node_modules，而沒有指定完整的目標路徑，Docker 會出錯，原因如下：
+
+1. Docker 的 volumes 需要同時指定 本地路徑（source） 和 容器內路徑（target）：
+
+   ```yaml
+   - <本地路徑>:<容器內路徑>
+   ```
+
+   而單獨寫 - ./app/node_modules，Docker 只會認為你提供了 本地路徑，卻沒有指定容器內要掛載的位置，這導致錯誤。
+
+2. 需要絕對路徑作為目標路徑:
+   Docker 的目標路徑（即容器內路徑）必須是絕對路徑，例如 /app/node_modules。寫成 ./app/node_modules 或省略目標路徑是不被接受的。
+
+   ```yaml
+   volumes:
+     - ./app/node_modules:/app/node_modules
+   ```
+
+   這表示：
+   本地的 ./app/node_modules 與容器內的 /app/node_modules 建立映射。
+
+3. 特定情況下，可能不應映射 node_modules
+
+   將本地的 node_modules 與容器內的 node_modules 映射，可能引發以下問題：
+
+   - 平台差異：如果開發環境和容器的系統架構不同（例如，本地是 Windows，容器是 Linux），一些二進位模組（如 \*.node 文件）可能無法正確運行。
+   - 依賴管理衝突：如果容器內安裝了新的依賴，可能會覆蓋本地 node_modules。
+
+   因此，許多開發者選擇讓容器內的 node_modules 獨立運行，而不與本地的 node_modules 建立映射。
+
+**建議的配置**
+如果你希望 node_modules 僅由容器管理，而不依賴本地的 node_modules，可以這樣配置：
+
+```yaml
+volumes:
+  - ./api:/app # 本地程式碼與容器同步
+  - /app/node_modules # 使用匿名 volume，讓 node_modules 獨立存在於容器內
+```
+
+這樣，本地的 node_modules 不會干擾容器內的依賴，同時容器內的依賴也不會回寫到本地。
+
+**總結**
+
+- ./app/node_modules 錯誤的原因是目標路徑不完整。正確的方式是明確指定容器內的目標路徑。如果你的需求是不與本地端的 node_modules 做同步，應該使用匿名 Volume，這樣可以保證環境隔離性，避免開發過程中出現依賴衝突。
+
+---
