@@ -34,7 +34,6 @@ ALTER TABLE `gj_accounts` DROP COLUMN gpa;
 
 -- 在資料表 gj_accounts 中插入一筆記錄，具體是插入兩個值
 INSERT INTO `gj_accounts` VALUES('addeaa@pcschool.tv', 'addeaa');
-INSERT INTO `gj_accounts` VALUES('addeaa@pcschool.tv', 'addeaa');
 
 -- 在資料表 gj_accounts 資料表中新增一個名為 number_of_meetings 的欄位，並且這個欄位可以存儲最多 100 個字元的文字資料
 ALTER TABLE `gj_accounts`
@@ -46,7 +45,7 @@ ADD `in_use` INT NOT NULL DEFAULT 0;
 
 -- 在 gj_ccounts 新增多筆數值的方式
 INSERT INTO `gj_accounts` (gj_account, gj_password, in_use)
-VALUES ('addeaa@pcschool.tv', 'addeaa-1009', 0), ('addeaa@pcschool.tv', 'addeaa-1009', 0), ('addeaa@pcschool.tv', 'addeaa-1009', 0), ('addeaa@pcschool.tv', 'addeaa-1009', 0), ('addeaa@pcschool.tv', 'addeaa-1009', 0), ('addeaa@pcschool.tv', 'addeaa-1009', 0), ('addeaa@pcschool.tv', 'addeaa-1009', 0), ('addeaa@pcschool.tv', 'addeaa-1009', 0);
+VALUES ('addeaa01@pcschool.tv', 'addeaa-1009-01', 0), ('addeaa02@pcschool.tv', 'addeaa-1009-02', 0), ('addeaa03@pcschool.tv', 'addeaa-1009-03', 0), ('addeaa-04@pcschool.tv', 'addeaa-1009-04', 0);
 
 -- 插入值
 UPDATE `gj_accounts`
@@ -61,7 +60,7 @@ WHERE `gj_account` = 'addeaa@pcschool.tv' ;
 -- 多行中插入同一個值
 UPDATE `gj_accounts`
 SET `in_use` = 0
-WHERE `gj_account` IN ('addeaa@pcschool.tv', 'addeaa@pcschool.tv', 'addeaa@pcschool.tv', 'addeaa@pcschool.tv', 'addeaa@pcschool.tv', 'addeaa@pcschool.tv', 'addeaa@pcschool.tv', 'addeaa@pcschool.tv', 'addeaa@pcschool.tv', 'addeaa@pcschool.tv');
+WHERE `gj_account` IN ('addeaa-01@pcschool.tv', 'addeaa-02@pcschool.tv', 'addeaa-03@pcschool.tv', 'addeaa-04@pcschool.tv');
 
 -- 選擇 gj_accounts 資料表
 SELECT * FROM `gj_accounts`;
