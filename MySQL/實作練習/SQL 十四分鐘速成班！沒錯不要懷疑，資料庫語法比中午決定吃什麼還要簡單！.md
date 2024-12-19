@@ -1,12 +1,3 @@
-**線上編輯器**
-[SOL Fiddle](https://sqlfiddle.com/mysql/online-compiler)
-
-**線上題目**
-[50 道 MySQL 練習題](https://hackmd.io/@_7vFEnkKTve5g-aFhT8EvQ/Sy-H0QeWr)
-
-**線上學習資源**
-[零基礎快速自學 SQL，1 天足矣—附最全 SQL 學習資源和練習題！](https://ithelp.ithome.com.tw/articles/10212163)
-
 [SQL 十四分鐘速成班！沒錯不要懷疑，資料庫語法比中午決定吃什麼還要簡單！](https://www.youtube.com/watch?v=G_zGBR0mQmE)
 
 ```sql
