@@ -33,8 +33,7 @@ ALTER TABLE `gj_accounts` ADD gpa DECIMAL(3, 2);
 ALTER TABLE `gj_accounts` DROP COLUMN gpa;
 
 -- 在資料表 gj_accounts 中插入一筆記錄，具體是插入兩個值
-INSERT INTO `gj_accounts` VALUES('gjun_awf@pcschool.tv', 'Awf23881275');
-INSERT INTO `gj_accounts` VALUES('gjun.awf@pcschool.tv', 'Awf23881275');
+INSERT INTO `gj_accounts` VALUES('addeaa@pcschool.tv', 'addeaa');
 
 -- 在資料表 gj_accounts 資料表中新增一個名為 number_of_meetings 的欄位，並且這個欄位可以存儲最多 100 個字元的文字資料
 ALTER TABLE `gj_accounts`
@@ -46,22 +45,22 @@ ADD `in_use` INT NOT NULL DEFAULT 0;
 
 -- 在 gj_ccounts 新增多筆數值的方式
 INSERT INTO `gj_accounts` (gj_account, gj_password, in_use)
-VALUES ('GJ-test-01@pcschool.tv', 'GJ-test-01-1009', 0), ('GJ-test-02@pcschool.tv', 'GJ-test-02-1009', 0), ('GJ-en-01@pcschool.tv', 'GJ-en-01-1009', 0), ('GJ-en-02@pcschool.tv', 'GJ-en-02-1009', 0), ('GJ-jp-01@pcschool.tv', 'GJ-jp-01-1009', 0), ('GJ-jp-02@pcschool.tv', 'GJ-jp-02-1009', 0), ('GJ-germany-01@pcschool.tv', 'GJ-germany-01-1009', 0), ('GJ-germany-02@pcschool.tv', 'GJ-germany-02-1009', 0);
+VALUES ('addeaa01@pcschool.tv', 'addeaa-1009-01', 0), ('addeaa02@pcschool.tv', 'addeaa-1009-02', 0), ('addeaa03@pcschool.tv', 'addeaa-1009-03', 0), ('addeaa-04@pcschool.tv', 'addeaa-1009-04', 0);
 
 -- 插入值
 UPDATE `gj_accounts`
-SET `gj_password` = 'GJ-germany-02-1009_test'
-WHERE `gj_account` = 'GJ-germany-02@pcschool.tv';
+SET `gj_password` = 'addeaa-1009_test'
+WHERE `gj_account` = 'addeaa@pcschool.tv';
 
 -- 插入值
 UPDATE `gj_accounts`
 SET `in_use` = 0
-WHERE `gj_account` = 'GJ-germany-02@pcschool.tv' ;
+WHERE `gj_account` = 'addeaa@pcschool.tv' ;
 
 -- 多行中插入同一個值
 UPDATE `gj_accounts`
 SET `in_use` = 0
-WHERE `gj_account` IN ('GJ-en-01@pcschool.tv', 'GJ-en-02@pcschool.tv', 'GJ-germany-01@pcschool.tv', 'GJ-germany-02@pcschool.tv', 'GJ-jp-01@pcschool.tv', 'GJ-jp-02@pcschool.tv', 'GJ-test-01@pcschool.tv', 'GJ-test-02@pcschool.tv', 'gjun_awf@pcschool.tv', 'gjun.awf@pcschool.tv');
+WHERE `gj_account` IN ('addeaa-01@pcschool.tv', 'addeaa-02@pcschool.tv', 'addeaa-03@pcschool.tv', 'addeaa-04@pcschool.tv');
 
 -- 選擇 gj_accounts 資料表
 SELECT * FROM `gj_accounts`;
@@ -101,9 +100,8 @@ DROP TABLE `gj_accounts`;
 DESCRIBE `gj_courses`;
 
 -- 在 gj_courses 資料表中插入一整行的資料
-INSERT INTO `gj_courses` VALUES('osr-ninh-auo', 'GJ 取得 Google Meet API', 'https://meet.google.com/osr-ninh-auo', 'gjun_awf@pcschool.tv', 'Awf23881275', '2024-09-23 17:30:00', '2024-09-23 18:00:00', TRUE, 'https://drive.google.com/file/d/1XUtdfsnBBUhnnLzKkGXdswe934xvfJ_7/view?usp=drive_link');
-INSERT INTO `gj_courses` VALUES('ber-dpzn-ddx', 'GJ API Test 測試-2', 'https://meet.google.com/ber-dpzn-ddx', 'gjun_awf@pcschool.tv', 'Awf23881275', '2024-09-24 11:10:00', '2024-09-24 11:50:00', FALSE, NULL);
-INSERT INTO `gj_courses` VALUES('hax-xdiz-wkc', 'GJ API Test 0924下午測試', 'https://meet.google.com/hax-xdiz-wkc', 'gjun_awf@pcschool.tv', 'Awf23881275', '2024-09-24 13:25:00', '2024-09-24 14:55:00', TRUE, 'https://drive.google.com/file/d/1c63pwYHhQQFfHqvTWqnzomm288C8kLjx/view');
+INSERT INTO `gj_courses` VALUES('osr-adeddd-auo', 'GJ 取得 Google Meet API', 'https://meet.google.com/dddaddd', 'dkdkdkd@pcschool.tv', 'Adldlldd', '2024-09-23 17:30:00', '2024-09-23 18:00:00', TRUE, 'https://drive.google.com/file/dkdkdkdkdkdkd');
+
 
 -- 選擇 gj_courses 資料表
 SELECT * FROM `gj_courses`;
@@ -118,7 +116,7 @@ ON gj_courses.gj_account = gj_accounts.gj_account;
 UPDATE `gj_courses`
 SET `recording_enabled` = FALSE
 -- WHERE `meet_id` = 'swj-vahs-cqm';
-WHERE `meet_id` IN ('kse-ctys-yzg', 'ryy-rnra-xzd', 'qve-gfdm-emv', 'ygy-wxgx-fkh', 'sti-utjp-kwi');
+WHERE `meet_id` IN ('kse-aaaa-yzg', 'ryy-dddd-xzd', 'qve-ssss-emv', 'ygy-dddd-fkh', 'sti-ggggg-kwi');
 
 -- 從 gj_courses 資料表中刪除 meet_id 等於 'ttt-aaaa-bbb' 的那一行記錄。
 DELETE FROM `gj_courses`
@@ -126,14 +124,14 @@ WHERE `meet_id` = 'ttt-aaaa-bbb';
 
 -- 從 gj_courses 資料表中刪除 meet_id 的那多行記錄。
 DELETE FROM `gj_courses`
-WHERE `meet_id` IN ('gmx-sohf-eub', 'abc-123-def', 'xyz-456-hij');
+WHERE `meet_id` IN ('gmx-aadw-eub', 'abc-dwdad-def', 'xyz-dade-hij');
 
 -- 從 gj_courses 資料表中刪除名為 gj_password 的欄位
 ALTER TABLE `gj_courses`
 DROP COLUMN `gj_password`;
 
--- 更改 MySQL 資料庫中使用者 'root' 在 localhost 主機上的密碼，將其設置為 'GJ_db_test_2024'
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'GJ_db_test_2024';
+-- 更改 MySQL 資料庫中使用者 'root' 在 localhost 主機上的密碼，將其設置為 'GJ_dddadd'
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'GJ_dddadd';
 
 -- 執行 CREATE INDEX 指令 (單一欄位索引)
 CREATE INDEX idx_end_time ON gj_courses (end_time);

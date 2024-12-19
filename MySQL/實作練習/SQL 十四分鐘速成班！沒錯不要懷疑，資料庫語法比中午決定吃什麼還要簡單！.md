@@ -1,9 +1,8 @@
-### SQL 十四分鐘速成班！沒錯不要懷疑，資料庫語法比中午決定吃什麼還要簡單！
-
-[SQL 十四分鐘速成班！沒錯不要懷疑，資料庫語法比中午決定吃什麼還要簡單！
-](https://www.youtube.com/watch?v=G_zGBR0mQmE)
+[SQL 十四分鐘速成班！沒錯不要懷疑，資料庫語法比中午決定吃什麼還要簡單！](https://www.youtube.com/watch?v=G_zGBR0mQmE)
 
 ```sql
+-- SQL 十四分鐘速成班！沒錯不要懷疑，資料庫語法比中午決定吃什麼還要簡單！ 語法指令
+
 -- 從 students 表格中回傳全部欄位的資料
 SELECT * FROM students;
 
