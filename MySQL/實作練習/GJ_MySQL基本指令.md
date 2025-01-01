@@ -93,6 +93,10 @@ ADD `course_number` VARCHAR(100);
 ALTER TABLE `gj_courses`
 ADD `forbidden_anyone_join` BOOLEAN;
 
+-- 新增欄位 share_screen
+ ALTER TABLE `gj_courses`
+ ADD `share_screen` NOT NULL DEFAULT FALSE;
+
 -- 刪除 gj_accounts 資料表
 DROP TABLE `gj_accounts`;
 
