@@ -76,3 +76,26 @@ git commit -m "Stop tracking folder_name"
      ```bash
      git remote -v
      ```
+
+---
+
+1. 要更改 Git 的作者名稱和電子郵件，你可以使用以下命令來更新 全局設置 或 特定倉庫 設置。
+
+   **更改 Git 作者名稱**
+
+   ```bash
+   git config --global user.name "新名字"
+   ```
+
+   **更改 Git email**
+
+   ```bash
+   git config --global user.email "新的郵箱@example.com"
+   ```
+
+2. 查看全局設置
+
+   ```bash
+   git config --global user.name
+   git config --global user.email
+   ```
