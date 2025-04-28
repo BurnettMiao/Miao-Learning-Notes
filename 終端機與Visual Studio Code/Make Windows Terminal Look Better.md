@@ -33,6 +33,6 @@
 **安裝步驟**
 
 1. 安裝 oh my zsh
-2. 然後到 Powerlevel10k github 網頁的 Ｍ anual 複製程式碼貼到終端機上
+2. 然後到 Powerlevel10k github 網頁的 Manual 複製程式碼貼到終端機上
 3. 之後輸入 exec zsh
 4. 就會啟動 Powerlevel10k 的基本設定了
