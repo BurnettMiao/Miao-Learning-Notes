@@ -2,6 +2,65 @@
 
 [Top 10 Javascript Algorithms to Prepare for Coding Interviews](https://youtu.be/ufBbWIyKY2E?si=j0MnKvGNrHdJYiQ8)
 
+**Max Char**
+解法二
+
+```js
+function maxChar(str) {
+  const charMap = {};
+  let max = 0;
+  let maxChar = '';
+
+  for (let char of str) {
+    if (charMap[char]) {
+      charMap[char] = charMap[char] + 1;
+    } else {
+      charMap[char] = 1;
+    }
+  }
+
+  for (const key in charMap) {
+    // console.log(key, value)
+    if (charMap[key] > max) {
+      max = charMap[key];
+      maxChar = key;
+    }
+  }
+  return maxChar;
+}
+
+maxChar('abcccccd');
+```
+
+解法一
+
+```js
+function maxChar(str) {
+  const charMap = {};
+  let max = 0;
+  let maxChar = '';
+
+  for (let char of str) {
+    if (charMap[char]) {
+      charMap[char] = charMap[char] + 1;
+    } else {
+      charMap[char] = 1;
+    }
+  }
+
+  for (const [key, value] of Object.entries(charMap)) {
+    // console.log(key, value)
+    if (value > max) {
+      max = value;
+      maxChar = key;
+    }
+  }
+  return maxChar;
+}
+
+maxChar('abcccccd');
+```
+
 **Palindrome**
 解法三 使用 two point
 
