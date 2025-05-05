@@ -2,6 +2,24 @@
 
 [Top 10 Javascript Algorithms to Prepare for Coding Interviews](https://youtu.be/ufBbWIyKY2E?si=j0MnKvGNrHdJYiQ8)
 
+**chunk**
+
+```js
+function chunk(array, size) {
+  const result = [];
+  let index = 0;
+
+  while (index < array.length) {
+    result.push(array.slice(index, index + size));
+    index += size;
+  }
+
+  return result;
+}
+
+chunk([1, 2, 3, 4, 5, 6, 7], 2);
+```
+
 **Max Char**
 解法二
 
