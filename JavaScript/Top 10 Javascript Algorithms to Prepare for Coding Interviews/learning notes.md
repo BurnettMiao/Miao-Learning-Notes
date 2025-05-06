@@ -2,7 +2,106 @@
 
 [Top 10 Javascript Algorithms to Prepare for Coding Interviews](https://youtu.be/ufBbWIyKY2E?si=j0MnKvGNrHdJYiQ8)
 
-**chunk**
+<br/>
+
+**Anagrams**
+解法二
+
+```js
+function cleanStr(str) {
+  return str.toLowerCase().replace(/[\W]/g, '').split('').sort().join('');
+}
+
+function anagrams(stringA, stringB) {
+  return cleanStr(stringA) === cleanStr(stringB);
+}
+
+anagrams('RAIL! SAFETY!', 'fairy tales');
+```
+
+解法一
+
+```js
+function charMap(str) {
+  const charmap = {};
+  str = str.toLowerCase().replace(/[\W]/g, '');
+  for (let char of str) {
+    charmap[char] = ++charmap[char] || 1;
+  }
+  return charmap;
+}
+
+function anagrams(stringA, stringB) {
+  // Step 1: Build char map for stringA
+  const charmapA = charMap(stringA);
+
+  // Setp 2: Build char map for stringB
+  const charmapB = charMap(stringB);
+
+  // Step 3: Compare each character in the both char maps
+  if (Object.keys(charmapA).length !== Object.keys(charmapA).length)
+    return false;
+  for (let key in charmapA) {
+    if (charmapA[key] !== charmapB[key]) return false;
+  }
+
+  return true;
+}
+
+anagrams('RAIL! SAFETY!', 'fairy tales');
+```
+
+<br/>
+
+**Title Case**
+解法三
+
+```js
+function capitalize(str) {
+  const words = str.split(' ');
+  return words.map((word) => word[0].toUpperCase() + word.slice(1)).join(' ');
+}
+
+capitalize('this is mukhtar from coding money');
+```
+
+解法二
+
+```js
+function capitalize(str) {
+  const words = str.split(' ');
+  const result = [];
+
+  for (let word of words) {
+    result.push(word[0].toUpperCase() + word.slice(1));
+  }
+
+  return result.join(' ');
+}
+
+capitalize('this is mukhtar from coding money');
+```
+
+解法一 (自己想)
+
+```js
+function capitalize(str) {
+  const result = [];
+  str = str.split(' ');
+  for (let letter of str) {
+    const newLetter = letter.split('');
+    newLetter[0] = newLetter[0].toUpperCase();
+    result.push(newLetter.join(''));
+  }
+  return result.join(' ');
+}
+
+capitalize('this is mukhtar from coding money');
+```
+
+<br/>
+
+**Array Chunking**
 
 ```js
 function chunk(array, size) {
@@ -19,6 +118,8 @@ function chunk(array, size) {
 
 chunk([1, 2, 3, 4, 5, 6, 7], 2);
 ```
+
+<br/>
 
 **Max Char**
 解法二
@@ -78,6 +179,8 @@ function maxChar(str) {
 
 maxChar('abcccccd');
 ```
+
+<br/>
 
 **Palindrome**
 解法三 使用 two point
