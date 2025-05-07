@@ -13,6 +13,38 @@ CODE!
 
 <br/>
 
+**Count Vowels**
+解法二
+
+```js
+function vowels(str) {
+  const matches = str.match(/[aeiou]/gi);
+  return matches.length;
+}
+vowels('How are you?');
+```
+
+解法一(自己想的)
+
+```js
+function vowels(str) {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let count = 0;
+  const cleanStr = str.toLowerCase().replace(/[\W]/g, '');
+  console.log(cleanStr);
+  for (let char of cleanStr) {
+    if (vowels.includes(char)) {
+      count += 1;
+    }
+  }
+
+  return count;
+}
+vowels('How are you?');
+```
+
+<br/>
+
 **Anagrams**
 解法二
 
