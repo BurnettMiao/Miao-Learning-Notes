@@ -14,6 +14,25 @@ CODE!
 <br/>
 
 **Count Vowels**
+解法三
+
+```js
+function vowels(str) {
+  const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+  let count = 0;
+  const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  for (let char of cleanStr) {
+    if (vowels.has(char)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+vowels('How are you?');
+```
+
 解法二
 
 ```js
