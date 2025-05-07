@@ -2,6 +2,15 @@
 
 [Top 10 Javascript Algorithms to Prepare for Coding Interviews](https://youtu.be/ufBbWIyKY2E?si=j0MnKvGNrHdJYiQ8)
 
+<details>
+<summary>Click to toggle contents of `code`</summary>
+
+```
+CODE!
+```
+
+</details>
+
 <br/>
 
 **Anagrams**
