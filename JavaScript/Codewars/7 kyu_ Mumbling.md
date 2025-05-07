@@ -9,6 +9,22 @@ accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 accum("cwAt") -> "C-Ww-Aaa-Tttt"
 The parameter of accum is a string which includes only letters from a..z and A..Z.
 
+- 解法二
+
+```js
+function accum(str) {
+  return str
+    .split('')
+    .map((char, index) => {
+      return char.toUpperCase() + char.toLowerCase().repeat(index);
+    })
+    .join('-');
+}
+
+accum('abcd'); // -> 'A-Bb-Ccc-Dddd'
+accum('jdick'); // -> 'J-Dd-Iii-Cccc-Kkkkk'
+```
+
 - 解法一(自己想的)
 
 ```js
@@ -30,5 +46,5 @@ function accum(str) {
   return result.join('-');
 }
 
-accum('abcd');
+accum('abcd'); // -> 'A-Bb-Ccc-Dddd'
 ```
