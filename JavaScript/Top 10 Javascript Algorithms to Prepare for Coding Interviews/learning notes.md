@@ -30,7 +30,7 @@ function vowels(str) {
 
   return count;
 }
-vowels('How are you?');
+vowels('How are you?'); // -> 5
 ```
 
 解法二
@@ -40,7 +40,7 @@ function vowels(str) {
   const matches = str.match(/[aeiou]/gi);
   return matches.length;
 }
-vowels('How are you?');
+vowels('How are you?'); // -> 5
 ```
 
 解法一(自己想的)
@@ -59,7 +59,7 @@ function vowels(str) {
 
   return count;
 }
-vowels('How are you?');
+vowels('How are you?'); // -> 5
 ```
 
 <br/>
