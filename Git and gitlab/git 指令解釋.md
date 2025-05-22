@@ -99,3 +99,11 @@ git commit -m "Stop tracking folder_name"
    git config --global user.name
    git config --global user.email
    ```
+
+---
+
+從 Git 版本控制中移除該檔案（也會從實體資料夾中刪除）。
+
+```bash
+git rm "JavaScript/Codewars/6 kyu_Who likes it?.md"
+```
