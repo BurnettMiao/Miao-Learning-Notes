@@ -18,10 +18,10 @@ Example
 ```js
 function duplicateCount(text) {
   const map = new Map();
-  for (let c of text.toLowerCase()) {
-    map.set(c, (map.get(c) || 0) + 1);
+  for (let char of text.toLowerCase()) {
+    map.set(char, (map.get(char) || 0) + 1);
   }
-  return [...map.values()].filter((v) => v > 1).length;
+  return [...map.values()].filter((value) => value > 1).length;
 }
 
 // duplicateCount("") // -> 0
