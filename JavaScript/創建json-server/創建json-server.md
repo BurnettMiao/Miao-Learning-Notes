@@ -66,13 +66,22 @@
          "scripts": {
            "serve": "vue-cli-service serve",
            "build": "vue-cli-service build",
-           "json:server": "json-server --watch fakedb/db.json --port 3000"
+           "json:server": "json-server --watch fakedb/db.json --port 3000 --static fakedb"
          }
        }
        ```
      - 說明
        - --watch 監控 db.json 的變化，修改後自動更新 API。
        - --port 3000 指定伺服器運行在 localhost:3000（可改為其他端口，避免與 Vue 的預設端口 8080 衝突）。
+       - --static fakedb：
+         告訴 json-server 將 fakedb 資料夾作為靜態檔案的根目錄。
+         任何位於 fakedb 資料夾中的檔案（例如 fakedb/images/sunny.png）都可以通過 HTTP 請求直接訪問，映射到 http://localhost:3000/<檔案路徑>。
+         例如：
+         fakedb/images/sunny.png 可通過 http://localhost:3000/images/sunny.png 訪問。
+         fakedb/other/file.txt 可通過 http://localhost:3000/other/file.txt 訪問。
+       - 不含 --static fakedb：
+         json-server 僅提供基於 db.json 的 REST API（如 http://localhost:3000/weather 或 http://localhost:3000/weather/1）。
+         無法直接通過 HTTP 訪問 fakedb 資料夾中的靜態檔案（例如圖片 fakedb/images/sunny.png）。
   2. 啟動伺服器：
      - 在終端運行：
        ```bash
