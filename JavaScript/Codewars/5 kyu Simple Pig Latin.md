@@ -7,6 +7,28 @@ Examples
 pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
 pigIt('Hello world !'); // elloHay orldway !
 
+- 解法二
+
+```js
+function pigIt(str) {
+  const strArr = str.split(' ');
+  const result = strArr.map((word) => {
+    // 如果是標點符號就不處理
+    if (/^[a-zA-Z]+$/.test(word)) {
+      const first = word.charAt(0);
+      return word.slice(1) + first + 'ay';
+    } else {
+      return word;
+    }
+  });
+  return result.join(' ');
+}
+
+pigIt('Pig latin is cool'); // -> 'igPay atinlay siay oolcay'
+pigIt('This is my string'); // -> 'hisTay siay ymay tringsay'
+pigIt('Hello world !'); // -> elloHay orldway !
+```
+
 - 解法一
 
 ```js
@@ -33,6 +55,8 @@ pigIt('Hello world !'); // -> elloHay orldway !
 ```
 
 <br/>
+
+- 語法解釋
 
 ```js
 /^[a-zA-Z]+$/.test(word);
