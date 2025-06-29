@@ -24,7 +24,10 @@ Error checking for text strings or other invalid inputs is not required, only va
 function narcissistic(value) {
   const digits = value.toString().split('');
   const power = digits.length;
-  const sum = digits.reduce((total, num) => total + Math.pow(num, power), 0);
+  const sum = digits.reduce(
+    (total, num) => total + Math.pow(Number(num), power),
+    0
+  );
   return sum === value;
 }
 
