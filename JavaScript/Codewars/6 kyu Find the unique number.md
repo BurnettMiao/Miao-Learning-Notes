@@ -9,6 +9,25 @@ It’s guaranteed that array contains at least 3 numbers.
 
 The tests contain some very huge arrays, so think about performance.
 
+- 解法五
+
+```js
+function findUniq(arr) {
+  const count = {};
+  for (let num of arr) {
+    count[num] = (count[num] || 0) + 1;
+  }
+
+  return +Object.keys(count).find((key) => count[key] === 1);
+}
+
+findUniq([1, 0, 0]); // -> 1
+findUniq([0, 1, 0]); // -> 1
+findUniq([0, 0, 1]); // -> 1
+findUniq([1, 1, 1, 2, 1, 1]); // -> 2
+findUniq([1, 1, 2, 1, 1]); // -> 2
+```
+
 - 解法四
 
 ```js
