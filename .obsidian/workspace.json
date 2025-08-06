@@ -142,27 +142,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/Codewars/5 kyu RGB To Hex Conversion.md",
+                "file": "JavaScript/Codewars/6 kyu Build a pile of Cubes.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 5 kyu RGB To Hex Conversion"
-            }
-          },
-          {
-            "id": "703f2033afc38e24",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "title": "Outline of 6 kyu Build a pile of Cubes"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
