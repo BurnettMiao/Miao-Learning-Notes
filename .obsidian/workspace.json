@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "8a87ee656c83cf91",
+        "id": "3b269541eef3a2c2",
         "type": "tabs",
         "children": [
           {
-            "id": "c629db3b31733a97",
+            "id": "4e952834f54fa0de",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/創建http-server/創建http-server.md",
-                "mode": "preview",
+                "file": "工作問題解決紀錄/solve problem.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "創建http-server"
+              "title": "solve problem"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/創建http-server/創建http-server.md",
+                "file": "工作問題解決紀錄/solve problem.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 創建http-server"
+              "title": "Outline of solve problem"
             }
           },
           {
@@ -178,16 +178,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c629db3b31733a97",
+  "active": "4e952834f54fa0de",
   "lastOpenFiles": [
+    "JavaScript/Codewars/6 kyuIs a number prime?.md",
     "JavaScript/Codewars/6 kyu Delete occurrences of an element if it occurs more than n times.md",
+    "2025-08-08.md",
     "Untitled.canvas",
+    "JavaScript/創建http-server/創建http-server.md",
     "Miao Learning Notes.md",
     "JavaScript/pages/contents.md",
     "JavaScript/Codewars/6 kyu Build a pile of Cubes.md",
     "JavaScript/Codewars/5 kyu Directions Reduction.md",
     "JavaScript/Codewars/6 kyu Break camelCase.md",
-    "JavaScript/創建http-server/創建http-server.md",
     "JavaScript/Codewars/5 kyu Greed is Good.md",
     "Vue/應用實例與相關練習/Order Drink.md",
     "SQL/other.md",
