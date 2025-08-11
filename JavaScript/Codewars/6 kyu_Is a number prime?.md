@@ -1,4 +1,4 @@
-## 6 kyuIs a number prime?
+## 6 kyu Is a number prime?
 
 Description:
 Define a function that takes an integer argument and returns a logical value true or false depending on if the integer is a prime.
@@ -14,6 +14,31 @@ Example
 is*prime(1) /* false _/
 is_prime(2) /_ true _/
 is_prime(-1) /_ false \_/
+
+- 解法二
+
+```js
+function isPrime(num) {
+  // 1. 小於等於 1 直接 false
+  if (num <= 1) return false;
+
+  // 2. 從 2 檢查到 sqrt(n)
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false; // 有可以整除的數 → 不是質數
+    }
+  }
+
+  return true;
+}
+
+isPrime(0); // -> false
+isPrime(1); // -> false
+isPrime(2); // -> true
+isPrime(73); //-> true
+isPrime(75); //-> false
+isPrime(-1); //-> false
+```
 
 - 解法一
 
