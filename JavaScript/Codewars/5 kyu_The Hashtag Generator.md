@@ -55,3 +55,18 @@ generateHashtag(' Hello there thanks for trying my Kata'); // -> "#HelloThereTha
 generateHashtag('    Hello     World   '); // ->"#HelloWorld"
 generateHashtag(''); // -> false
 ```
+
+---
+
+**重點紀錄**
+
+```js
+if (!str || !str.trim()) return false;
+```
+
+!str：會檢查 str 是否是假值（"", null, undefined, 0, false, NaN 都會進來）。
+
+!str.trim()：會先把字串前後空白去掉，如果結果是空字串 ""，就會變成 false，判斷成立。
+
+✅ 優點：
+一次檢查了「變數不存在」和「純空白」的情況。
