@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "solve problem"
             }
+          },
+          {
+            "id": "5031204323ffe408",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.10"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.9.10"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -170,6 +183,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -178,7 +192,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "106edaa792d2ce08",
+  "active": "5031204323ffe408",
   "lastOpenFiles": [
     "JavaScript/Codewars/5 kyu_Maximum subarray sum.md",
     "JavaScript/Codewars/5 kyu_The Hashtag Generator.md",
