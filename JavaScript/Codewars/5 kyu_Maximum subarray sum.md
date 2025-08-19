@@ -9,6 +9,40 @@ Easy case is when the list is made up of only positive numbers and the maximum s
 
 Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.
 
+- 解法三(有回傳陣列)
+
+```js
+function maxSequence(arr) {
+  let maxSum = 0;
+  let currentSum = 0;
+
+  // 用來追蹤子陣列範圍
+  let start = 0;
+  let end = 0;
+  let tempStart = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (currentSum + arr[i] > 0) {
+      currentSum += arr[i];
+    } else {
+      currentSum = 0;
+      tempStart = i + 1; // 重新開始
+    }
+
+    if (currentSum > maxSum) {
+      maxSum = currentSum;
+      start = tempStart;
+      end = i;
+    }
+  }
+
+  return arr.slice(start, end + 1);
+}
+
+maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]);
+// --> should be 6: [4, -1, 2, 1]
+```
+
 - 解法二
 
 ```js
