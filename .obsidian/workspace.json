@@ -14,27 +14,14 @@
               "type": "markdown",
               "state": {
                 "file": "工作問題解決紀錄/solve problem.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "solve problem"
             }
-          },
-          {
-            "id": "5031204323ffe408",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.9.10"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.9.10"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -91,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 224.5
   },
   "right": {
     "id": "b038aa1c8646e7e8",
@@ -179,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 291.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,8 +179,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5031204323ffe408",
+  "active": "4e952834f54fa0de",
   "lastOpenFiles": [
+    "JavaScript/JavaScript 解構.md",
     "JavaScript/Codewars/5 kyu_Maximum subarray sum.md",
     "JavaScript/Codewars/5 kyu_The Hashtag Generator.md",
     "JavaScript/Codewars/5 kyu_Rot13.md",
@@ -219,7 +207,6 @@
     "JavaScript/Codewars/6 kyu_Take a Ten Minutes Walk.md",
     "JavaScript/Codewars/6 kyu_The Vowel Code.md",
     "JavaScript/Codewars/6 kyu_Tribonacci Sequence.md",
-    "JavaScript/Codewars/6 kyu_Unique In Order.md",
     "Untitled.canvas",
     "Git and gitlab/git.JPG"
   ]
