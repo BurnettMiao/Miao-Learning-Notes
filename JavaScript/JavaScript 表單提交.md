@@ -29,6 +29,26 @@ fetch('/login', {
 });
 ```
 
+**範例整合**
+
+```html
+<form id="myForm">
+  <input type="text" name="price" />
+  <button type="submit">計算價格</button>
+</form>
+
+<script>
+  const form = document.getElementById('myForm');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const price = fd.get('price'); // 直接抓 input 的值
+    console.log(price);
+  });
+</script>
+```
+
 **其他特性**
 
 - formData.append(name, value) → 手動加入欄位
