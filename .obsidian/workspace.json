@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "工作問題解決紀錄/solve problem.md",
+                "file": "JavaScript/Codewars/5 kyu_Pete, the baker.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "solve problem"
+              "title": "5 kyu_Pete, the baker"
             }
           }
         ]
@@ -181,6 +181,7 @@
   },
   "active": "4e952834f54fa0de",
   "lastOpenFiles": [
+    "工作問題解決紀錄/solve problem.md",
     "JavaScript/Codewars/5 kyu_Pete, the baker.md",
     "JavaScript/JavaScript 解構.md",
     "JavaScript/Codewars/5 kyu_Maximum subarray sum.md",
@@ -206,7 +207,6 @@
     "JavaScript/Codewars/6 kyu_Sort the odd.md",
     "JavaScript/Codewars/6 kyu_Split Strings.md",
     "JavaScript/Codewars/6 kyu_Take a Ten Minutes Walk.md",
-    "JavaScript/Codewars/6 kyu_The Vowel Code.md",
     "Untitled.canvas",
     "Git and gitlab/git.JPG"
   ]
