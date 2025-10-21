@@ -107,3 +107,19 @@ git commit -m "Stop tracking folder_name"
 ```bash
 git rm "JavaScript/Codewars/6 kyu_Who likes it?.md"
 ```
+
+---
+
+將檔案從 Stages Changes -> Changes
+
+```bash
+git reset .
+```
+
+---
+
+將檔案從 Changes 移除也就是取消修改的話
+
+```bash
+git restore .
+```
