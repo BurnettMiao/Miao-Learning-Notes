@@ -160,5 +160,10 @@ Cherry-pick（挑多個提交）
 
 ```bash
 git cherry-pick commit1 commit2 commit3
+```
 
+強制讓 origin/HEAD 指向 origin/main
+
+```bash
+git remote set-head origin main
 ```

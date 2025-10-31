@@ -19,9 +19,3 @@ git remote add origin https://github.com/BurnettMiao/Build-A-Tesla-Car-Configura
 git branch -M main
 git push -u origin main
 ```
-
-強制讓 origin/HEAD 指向 origin/main
-
-```bash
-git remote set-head origin main
-```
