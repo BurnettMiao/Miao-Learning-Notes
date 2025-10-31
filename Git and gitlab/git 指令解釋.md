@@ -123,3 +123,42 @@ git reset .
 ```bash
 git restore .
 ```
+
+刪除本地分支
+
+```bash
+git branch -d 分支名稱
+```
+
+強制刪除本地分支
+
+```bash
+git branch -D 分支名稱
+```
+
+刪除「遠端」分支
+
+```bash
+git push origin --delete 分支名稱
+
+```
+
+遠端的 main 雖然早就刪掉了，但你本地的 Git 還沒更新「遠端的分支列表」。
+從遠端更新分支資訊，刪除所有已在遠端刪掉、但本地還殘留的 origin/\* 參考
+
+```bash
+git fetch --prune
+```
+
+Cherry-pick（挑特定提交）
+
+```bash
+git cherry-pick <commit-hash>
+```
+
+Cherry-pick（挑多個提交）
+
+```bash
+git cherry-pick commit1 commit2 commit3
+
+```
