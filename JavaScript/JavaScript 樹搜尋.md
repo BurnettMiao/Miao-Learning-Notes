@@ -41,6 +41,245 @@ const result = findNode(apiTree, 'createProduct');
 console.log(result);
 ```
 
+DFS 進階應用
+
+```js
+const api = [
+  {
+    menuNo: 100,
+    menuName: '學習中心',
+    subMenuItems: [
+      {
+        menuNo: 101,
+        menuName: '入門指南',
+        subMenuItems: [
+          {
+            menuNo: 201,
+            menuName: '基礎訓練 第一週',
+            courseList: [
+              {
+                id: 'L001',
+                courseTitle: '平台導覽與基本操作',
+                hasExam: false,
+                duration: '00:15:00',
+              },
+              {
+                id: 'L002',
+                courseTitle: '資料管理入門',
+                hasExam: true,
+                duration: '00:25:00',
+              },
+            ],
+          },
+          {
+            menuNo: 202,
+            menuName: '基礎訓練 第二週',
+            courseList: [
+              {
+                id: 'L003',
+                courseTitle: '溝通技巧：有效提問與回應',
+                hasExam: true,
+                duration: '00:30:00',
+              },
+              {
+                id: 'L004',
+                courseTitle: '目標設定與追蹤方法',
+                hasExam: false,
+                duration: '00:20:00',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        menuNo: 102,
+        menuName: '進階學院',
+        courseList: [
+          {
+            id: 'L005',
+            courseTitle: '時間管理與會議優化',
+            hasExam: true,
+            duration: '00:45:00',
+          },
+          {
+            id: 'L006',
+            courseTitle: '團隊激勵與績效對談',
+            hasExam: true,
+            duration: '00:40:00',
+          },
+          {
+            id: 'L007',
+            courseTitle: '專案規劃與風險評估',
+            hasExam: false,
+            duration: '00:35:00',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    menuNo: 200,
+    menuName: '技能工坊',
+    subMenuItems: [
+      {
+        menuNo: 301,
+        menuName: '數位工具',
+        courseList: [
+          {
+            id: 'S001',
+            courseTitle: '雲端協作平台實務',
+            hasExam: true,
+          },
+          {
+            id: 'S002',
+            courseTitle: '資料視覺化入門',
+            hasExam: false,
+          },
+        ],
+      },
+    ],
+  },
+];
+
+// 1. 找課程："時間管理與會議優化"
+function findNode(root, targetName) {
+  if (!root) return null;
+  if (Array.isArray(root)) {
+    for (let item of root) {
+      const result = findNode(item, targetName);
+      if (result) return result;
+    }
+    return null;
+  }
+  // 檢查 menuName 或 courseTitle
+  if (root.menuName === targetName || root.courseTitle === targetName) {
+    return root;
+  }
+  // 遞迴子目錄
+  if (root.subMenuItems) {
+    for (let child of root.subMenuItems) {
+      const result = findNode(child, targetName);
+      if (result) return result;
+    }
+  }
+  // 遞迴課程列表
+  if (root.courseList) {
+    for (let course of root.courseList) {
+      const result = findNode(course, targetName);
+      if (result) return result;
+    }
+  }
+
+  return null;
+}
+
+findNode(api, '時間管理與會議優化');
+console.log('-----+++++-----+++++-----');
+
+// 2. 找目錄："進階學院"
+findNode(api, '進階學院');
+console.log('-----+++++-----+++++-----');
+
+// 找 ID："S001"
+function findNodeById(root, targetId) {
+  if (!root) return null;
+  if (Array.isArray(root)) {
+    for (let item of root) {
+      const result = findNodeById(item, targetId);
+      if (result) return result;
+    }
+    return null;
+  }
+
+  if (root.id === targetId) return root;
+
+  if (root.subMenuItems) {
+    for (let child of root.subMenuItems) {
+      const result = findNodeById(child, targetId);
+      if (result) return result;
+    }
+  }
+
+  if (root.courseList) {
+    for (let course of root.courseList) {
+      const result = findNodeById(course, targetId);
+      if (result) return result;
+    }
+  }
+
+  return null;
+}
+findNodeById(api, 'S001');
+console.log('-----+++++-----+++++-----');
+
+// 找出所有 hasExam: true 的課程
+function findAllWithExam(root, result = []) {
+  if (!root) result;
+  if (Array.isArray(root)) {
+    for (let item of root) {
+      findAllWithExam(item, result);
+    }
+    result;
+  }
+
+  if (root.courseList) {
+    for (let course of root.courseList) {
+      if (course.hasExam) {
+        result.push(course);
+      }
+    }
+  }
+
+  if (root.subMenuItems) {
+    for (let child of root.subMenuItems) {
+      findAllWithExam(child, result);
+    }
+  }
+
+  return result;
+}
+findAllWithExam(api);
+console.log('-----+++++-----+++++-----');
+
+// 找出路徑："溝通技巧：有效提問與回應"
+// 預期輸出: ["學習中心", "入門指南", "基礎訓練 第二週", "溝通技巧：有效提問與回應"]
+function findPathTo(root, targetName, path = []) {
+  if (!root) return null;
+  if (Array.isArray(root)) {
+    for (let item of root) {
+      const result = findPathTo(item, targetName, path);
+      if (result) return result;
+    }
+    return null;
+  }
+
+  // 加入當前節點名稱
+  const currentName = root.menuName || root.courseTitle || '';
+  path.push(currentName);
+
+  if (currentName === targetName) {
+    return path;
+  }
+
+  if (root.subMenuItems) {
+    for (let child of root.subMenuItems) {
+      const result = findPathTo(child, targetName, [...path]); // 複製 path
+      if (result) return result;
+    }
+  }
+
+  if (root.courseList) {
+    for (let course of root.courseList) {
+      const result = findPathTo(course, targetName, [...path]);
+      if (result) return result;
+    }
+  }
+
+  return null;
+}
+findPathTo(api, '溝通技巧：有效提問與回應');
+```
+
 BFS
 
 ```js
