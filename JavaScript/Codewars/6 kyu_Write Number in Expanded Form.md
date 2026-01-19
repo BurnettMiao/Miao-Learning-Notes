@@ -9,6 +9,7 @@ You will be given a number and you will need to return it as a string in [Expan
 NOTE: All numbers will be whole numbers greater than 0.
 
 **方法二**
+
 ```js
 function expandedForm(num) {
   const digits = num.toString().split('');
