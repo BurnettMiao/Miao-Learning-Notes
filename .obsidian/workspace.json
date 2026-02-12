@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/Codewars/5 kyuNumber of trailing zeros of N!.md",
+                "file": "JavaScript/Neetcode/Easy_Valid Palindrome.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "5 kyuNumber of trailing zeros of N!"
+              "title": "Easy_Valid Palindrome"
             }
           }
         ]
@@ -192,8 +192,13 @@
   },
   "active": "4463694bc9431baa",
   "lastOpenFiles": [
-    "JavaScript/Codewars/6 kyu_Consecutive strings.md",
+    "JavaScript/Neetcode/Easy_Two Sum.md",
+    "JavaScript/Neetcode/Easy_Valid Palindrome.md",
+    "JavaScript/Neetcode/Easy_Valid Anagram.md",
+    "JavaScript/Neetcode/Ease_Contains Duplicate.md",
     "JavaScript/Codewars/5 kyuNumber of trailing zeros of N!.md",
+    "JavaScript/Neetcode",
+    "JavaScript/Codewars/6 kyu_Consecutive strings.md",
     "JavaScript/Codewars/6 kyu_Build Tower.md",
     "JavaScript/Codewars/6 kyu_Write Number in Expanded Form.md",
     "JavaScript/Codewars/8 kyu_Welcome!.md",
@@ -222,10 +227,6 @@
     "JavaScript/Codewars/5 kyu_Product of consecutive Fib numbers.md",
     "JavaScript/JavaScript 表單提交.md",
     "工作問題解決紀錄/solve problem.md",
-    "JavaScript/Codewars/5 kyu_Pete, the baker.md",
-    "JavaScript/JavaScript 解構.md",
-    "JavaScript/Codewars/5 kyu_Maximum subarray sum.md",
-    "JavaScript/Codewars/5 kyu_The Hashtag Generator.md",
     "Git and gitlab/git.JPG"
   ]
 }
