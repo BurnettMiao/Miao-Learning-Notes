@@ -1,3 +1,10 @@
+**題型**  
+- Frequency Counter  
+- Sorting Compare  
+  
+**核心觀念** 
+比較兩個陣列元素出現頻率是否一致
+
 解法二：
 ```js
 let array1 = [121, 144, 19, 161, 19, 144, 19, 11];
